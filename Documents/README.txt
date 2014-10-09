@@ -1,0 +1,1 @@
+Contêm os documentos criados referêntes ao projeto do Collaborative Mapping.
