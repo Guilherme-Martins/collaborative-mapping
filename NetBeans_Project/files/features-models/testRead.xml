@@ -1,0 +1,64 @@
+<plm canReuseInstance="true" name="SequenceAligning">
+	<element dynamic="false" id="2" name="application_type" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>3</id>
+			</child>
+			<child optional="false">
+				<id>4</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="3" name="isolated_application" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>2</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>4</id>
+					<name>workflow</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="4" name="workflow" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>2</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>3</id>
+					<name>isolated_application</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+</plm>

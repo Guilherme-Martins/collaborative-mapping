@@ -1,0 +1,3397 @@
+<plm canReuseInstance="true" name="SequenceAligning">
+	<element dynamic="false" id="2" name="application_type" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>3</id>
+			</child>
+			<child optional="false">
+				<id>4</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="3" name="isolated_application" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>2</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>4</id>
+					<name>workflow</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="4" name="workflow" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>2</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>3</id>
+					<name>isolated_application</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="5" name="sequencing_platform" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>6</id>
+			</child>
+			<child optional="false">
+				<id>7</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="6" name="Sanger" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>5</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>7</id>
+					<name>NGS</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="7" name="NGS" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>5</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>6</id>
+					<name>Sanger</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>8</id>
+			</child>
+			<child optional="false">
+				<id>9</id>
+			</child>
+			<child optional="false">
+				<id>10</id>
+			</child>
+			<child optional="false">
+				<id>11</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="8" name="FLX_454" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>7</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>9</id>
+					<name>Solexa</name>
+				</constraint_element>
+				<constraint_element>
+					<id>10</id>
+					<name>SOLiDSystem</name>
+				</constraint_element>
+				<constraint_element>
+					<id>11</id>
+					<name>tSMS</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="9" name="Solexa" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>7</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>8</id>
+					<name>FLX_454</name>
+				</constraint_element>
+				<constraint_element>
+					<id>10</id>
+					<name>SOLiDSystem</name>
+				</constraint_element>
+				<constraint_element>
+					<id>11</id>
+					<name>tSMS</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="10" name="SOLiDSystem" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>7</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>8</id>
+					<name>FLX_454</name>
+				</constraint_element>
+				<constraint_element>
+					<id>9</id>
+					<name>Solexa</name>
+				</constraint_element>
+				<constraint_element>
+					<id>11</id>
+					<name>tSMS</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="11" name="tSMS" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>7</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>8</id>
+					<name>FLX_454</name>
+				</constraint_element>
+				<constraint_element>
+					<id>9</id>
+					<name>Solexa</name>
+				</constraint_element>
+				<constraint_element>
+					<id>10</id>
+					<name>SOLiDSystem</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="12" name="bioinformatics_task" optional="true" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>13</id>
+			</child>
+			<child optional="false">
+				<id>20</id>
+			</child>
+			<child optional="false">
+				<id>21</id>
+			</child>
+			<child optional="false">
+				<id>22</id>
+			</child>
+			<child optional="false">
+				<id>23</id>
+			</child>
+			<child optional="false">
+				<id>24</id>
+			</child>
+			<child optional="false">
+				<id>25</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="13" name="aligning" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>12</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>20</id>
+					<name>assembly</name>
+				</constraint_element>
+				<constraint_element>
+					<id>21</id>
+					<name>base_calling</name>
+				</constraint_element>
+				<constraint_element>
+					<id>22</id>
+					<name>sequence_grouping</name>
+				</constraint_element>
+				<constraint_element>
+					<id>23</id>
+					<name>vector_masking</name>
+				</constraint_element>
+				<constraint_element>
+					<id>24</id>
+					<name>viewing_and_editing1</name>
+				</constraint_element>
+				<constraint_element>
+					<id>25</id>
+					<name>viewing_and_editing2</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>14</id>
+			</child>
+			<child optional="false">
+				<id>17</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="14" name="global_aligning" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>13</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>17</id>
+					<name>local_aligning</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>15</id>
+			</child>
+			<child optional="false">
+				<id>16</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="15" name="pairwise_global_aligning" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>14</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>16</id>
+					<name>multiple_global_aligning</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="16" name="multiple_global_aligning" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>14</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>15</id>
+					<name>pairwise_global_aligning</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="17" name="local_aligning" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>13</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>14</id>
+					<name>global_aligning</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>18</id>
+			</child>
+			<child optional="false">
+				<id>19</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="18" name="pairwise_local_aligning" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>17</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>19</id>
+					<name>multiple_local_aligning</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="19" name="multiple_local_aligning" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>17</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>18</id>
+					<name>pairwise_local_aligning</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="20" name="assembly" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>12</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>13</id>
+					<name>aligning</name>
+				</constraint_element>
+				<constraint_element>
+					<id>21</id>
+					<name>base_calling</name>
+				</constraint_element>
+				<constraint_element>
+					<id>22</id>
+					<name>sequence_grouping</name>
+				</constraint_element>
+				<constraint_element>
+					<id>23</id>
+					<name>vector_masking</name>
+				</constraint_element>
+				<constraint_element>
+					<id>24</id>
+					<name>viewing_and_editing1</name>
+				</constraint_element>
+				<constraint_element>
+					<id>25</id>
+					<name>viewing_and_editing2</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="21" name="base_calling" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>12</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>13</id>
+					<name>aligning</name>
+				</constraint_element>
+				<constraint_element>
+					<id>20</id>
+					<name>assembly</name>
+				</constraint_element>
+				<constraint_element>
+					<id>22</id>
+					<name>sequence_grouping</name>
+				</constraint_element>
+				<constraint_element>
+					<id>23</id>
+					<name>vector_masking</name>
+				</constraint_element>
+				<constraint_element>
+					<id>24</id>
+					<name>viewing_and_editing1</name>
+				</constraint_element>
+				<constraint_element>
+					<id>25</id>
+					<name>viewing_and_editing2</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="22" name="sequence_grouping" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>12</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>13</id>
+					<name>aligning</name>
+				</constraint_element>
+				<constraint_element>
+					<id>20</id>
+					<name>assembly</name>
+				</constraint_element>
+				<constraint_element>
+					<id>21</id>
+					<name>base_calling</name>
+				</constraint_element>
+				<constraint_element>
+					<id>23</id>
+					<name>vector_masking</name>
+				</constraint_element>
+				<constraint_element>
+					<id>24</id>
+					<name>viewing_and_editing1</name>
+				</constraint_element>
+				<constraint_element>
+					<id>25</id>
+					<name>viewing_and_editing2</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="23" name="vector_masking" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>12</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>13</id>
+					<name>aligning</name>
+				</constraint_element>
+				<constraint_element>
+					<id>20</id>
+					<name>assembly</name>
+				</constraint_element>
+				<constraint_element>
+					<id>21</id>
+					<name>base_calling</name>
+				</constraint_element>
+				<constraint_element>
+					<id>22</id>
+					<name>sequence_grouping</name>
+				</constraint_element>
+				<constraint_element>
+					<id>24</id>
+					<name>viewing_and_editing1</name>
+				</constraint_element>
+				<constraint_element>
+					<id>25</id>
+					<name>viewing_and_editing2</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="24" name="viewing_and_editing1" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>12</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>13</id>
+					<name>aligning</name>
+				</constraint_element>
+				<constraint_element>
+					<id>20</id>
+					<name>assembly</name>
+				</constraint_element>
+				<constraint_element>
+					<id>21</id>
+					<name>base_calling</name>
+				</constraint_element>
+				<constraint_element>
+					<id>22</id>
+					<name>sequence_grouping</name>
+				</constraint_element>
+				<constraint_element>
+					<id>23</id>
+					<name>vector_masking</name>
+				</constraint_element>
+				<constraint_element>
+					<id>25</id>
+					<name>viewing_and_editing2</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="25" name="viewing_and_editing2" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>12</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>13</id>
+					<name>aligning</name>
+				</constraint_element>
+				<constraint_element>
+					<id>20</id>
+					<name>assembly</name>
+				</constraint_element>
+				<constraint_element>
+					<id>21</id>
+					<name>base_calling</name>
+				</constraint_element>
+				<constraint_element>
+					<id>22</id>
+					<name>sequence_grouping</name>
+				</constraint_element>
+				<constraint_element>
+					<id>23</id>
+					<name>vector_masking</name>
+				</constraint_element>
+				<constraint_element>
+					<id>24</id>
+					<name>viewing_and_editing1</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="26" name="bioinformatics_algorithm" optional="true" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>27</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="27" name="BLAST" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>26</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>28</id>
+			</child>
+			<child optional="false">
+				<id>29</id>
+			</child>
+			<child optional="false">
+				<id>30</id>
+			</child>
+			<child optional="false">
+				<id>31</id>
+			</child>
+			<child optional="false">
+				<id>32</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="28" name="BLASTN" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>27</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>29</id>
+					<name>BLASTP</name>
+				</constraint_element>
+				<constraint_element>
+					<id>30</id>
+					<name>BLASTX</name>
+				</constraint_element>
+				<constraint_element>
+					<id>31</id>
+					<name>TBLASTN</name>
+				</constraint_element>
+				<constraint_element>
+					<id>32</id>
+					<name>TBLASTX</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="29" name="BLASTP" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>27</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>28</id>
+					<name>BLASTN</name>
+				</constraint_element>
+				<constraint_element>
+					<id>30</id>
+					<name>BLASTX</name>
+				</constraint_element>
+				<constraint_element>
+					<id>31</id>
+					<name>TBLASTN</name>
+				</constraint_element>
+				<constraint_element>
+					<id>32</id>
+					<name>TBLASTX</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="30" name="BLASTX" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>27</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>28</id>
+					<name>BLASTN</name>
+				</constraint_element>
+				<constraint_element>
+					<id>29</id>
+					<name>BLASTP</name>
+				</constraint_element>
+				<constraint_element>
+					<id>31</id>
+					<name>TBLASTN</name>
+				</constraint_element>
+				<constraint_element>
+					<id>32</id>
+					<name>TBLASTX</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="31" name="TBLASTN" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>27</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>28</id>
+					<name>BLASTN</name>
+				</constraint_element>
+				<constraint_element>
+					<id>29</id>
+					<name>BLASTP</name>
+				</constraint_element>
+				<constraint_element>
+					<id>30</id>
+					<name>BLASTX</name>
+				</constraint_element>
+				<constraint_element>
+					<id>32</id>
+					<name>TBLASTX</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="32" name="TBLASTX" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>27</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>28</id>
+					<name>BLASTN</name>
+				</constraint_element>
+				<constraint_element>
+					<id>29</id>
+					<name>BLASTP</name>
+				</constraint_element>
+				<constraint_element>
+					<id>30</id>
+					<name>BLASTX</name>
+				</constraint_element>
+				<constraint_element>
+					<id>31</id>
+					<name>TBLASTN</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="33" name="biological_sequence" optional="true" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>34</id>
+			</child>
+			<child optional="false">
+				<id>37</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="34" name="nucleotide_sequence" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>33</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>37</id>
+					<name>protein_sequence</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>35</id>
+			</child>
+			<child optional="false">
+				<id>36</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="35" name="DNA_sequence" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>34</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>36</id>
+					<name>RNA_sequence</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="36" name="RNA_sequence" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>34</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>35</id>
+					<name>DNA_sequence</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="37" name="protein_sequence" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>33</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>34</id>
+					<name>nucleotide_sequence</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="38" name="sequence_database" optional="true" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>39</id>
+			</child>
+			<child optional="false">
+				<id>47</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="39" name="nucleotide_database" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>38</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>47</id>
+					<name>protein_databse</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>40</id>
+			</child>
+			<child optional="false">
+				<id>41</id>
+			</child>
+			<child optional="false">
+				<id>42</id>
+			</child>
+			<child optional="false">
+				<id>43</id>
+			</child>
+			<child optional="false">
+				<id>44</id>
+			</child>
+			<child optional="false">
+				<id>45</id>
+			</child>
+			<child optional="false">
+				<id>46</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="40" name="DDBJ" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>39</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>41</id>
+					<name>EMBL</name>
+				</constraint_element>
+				<constraint_element>
+					<id>42</id>
+					<name>Genbank_EMBL</name>
+				</constraint_element>
+				<constraint_element>
+					<id>43</id>
+					<name>Unigene</name>
+				</constraint_element>
+				<constraint_element>
+					<id>44</id>
+					<name>dbEST</name>
+				</constraint_element>
+				<constraint_element>
+					<id>45</id>
+					<name>dbSNP</name>
+				</constraint_element>
+				<constraint_element>
+					<id>46</id>
+					<name>est_human</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="41" name="EMBL" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>39</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>40</id>
+					<name>DDBJ</name>
+				</constraint_element>
+				<constraint_element>
+					<id>42</id>
+					<name>Genbank_EMBL</name>
+				</constraint_element>
+				<constraint_element>
+					<id>43</id>
+					<name>Unigene</name>
+				</constraint_element>
+				<constraint_element>
+					<id>44</id>
+					<name>dbEST</name>
+				</constraint_element>
+				<constraint_element>
+					<id>45</id>
+					<name>dbSNP</name>
+				</constraint_element>
+				<constraint_element>
+					<id>46</id>
+					<name>est_human</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="42" name="Genbank_EMBL" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>39</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>40</id>
+					<name>DDBJ</name>
+				</constraint_element>
+				<constraint_element>
+					<id>41</id>
+					<name>EMBL</name>
+				</constraint_element>
+				<constraint_element>
+					<id>43</id>
+					<name>Unigene</name>
+				</constraint_element>
+				<constraint_element>
+					<id>44</id>
+					<name>dbEST</name>
+				</constraint_element>
+				<constraint_element>
+					<id>45</id>
+					<name>dbSNP</name>
+				</constraint_element>
+				<constraint_element>
+					<id>46</id>
+					<name>est_human</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="43" name="Unigene" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>39</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>40</id>
+					<name>DDBJ</name>
+				</constraint_element>
+				<constraint_element>
+					<id>41</id>
+					<name>EMBL</name>
+				</constraint_element>
+				<constraint_element>
+					<id>42</id>
+					<name>Genbank_EMBL</name>
+				</constraint_element>
+				<constraint_element>
+					<id>44</id>
+					<name>dbEST</name>
+				</constraint_element>
+				<constraint_element>
+					<id>45</id>
+					<name>dbSNP</name>
+				</constraint_element>
+				<constraint_element>
+					<id>46</id>
+					<name>est_human</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="44" name="dbEST" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>39</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>40</id>
+					<name>DDBJ</name>
+				</constraint_element>
+				<constraint_element>
+					<id>41</id>
+					<name>EMBL</name>
+				</constraint_element>
+				<constraint_element>
+					<id>42</id>
+					<name>Genbank_EMBL</name>
+				</constraint_element>
+				<constraint_element>
+					<id>43</id>
+					<name>Unigene</name>
+				</constraint_element>
+				<constraint_element>
+					<id>45</id>
+					<name>dbSNP</name>
+				</constraint_element>
+				<constraint_element>
+					<id>46</id>
+					<name>est_human</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="45" name="dbSNP" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>39</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>40</id>
+					<name>DDBJ</name>
+				</constraint_element>
+				<constraint_element>
+					<id>41</id>
+					<name>EMBL</name>
+				</constraint_element>
+				<constraint_element>
+					<id>42</id>
+					<name>Genbank_EMBL</name>
+				</constraint_element>
+				<constraint_element>
+					<id>43</id>
+					<name>Unigene</name>
+				</constraint_element>
+				<constraint_element>
+					<id>44</id>
+					<name>dbEST</name>
+				</constraint_element>
+				<constraint_element>
+					<id>46</id>
+					<name>est_human</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="46" name="est_human" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>39</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>40</id>
+					<name>DDBJ</name>
+				</constraint_element>
+				<constraint_element>
+					<id>41</id>
+					<name>EMBL</name>
+				</constraint_element>
+				<constraint_element>
+					<id>42</id>
+					<name>Genbank_EMBL</name>
+				</constraint_element>
+				<constraint_element>
+					<id>43</id>
+					<name>Unigene</name>
+				</constraint_element>
+				<constraint_element>
+					<id>44</id>
+					<name>dbEST</name>
+				</constraint_element>
+				<constraint_element>
+					<id>45</id>
+					<name>dbSNP</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="47" name="protein_databse" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>38</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>39</id>
+					<name>nucleotide_database</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>48</id>
+			</child>
+			<child optional="false">
+				<id>49</id>
+			</child>
+			<child optional="false">
+				<id>50</id>
+			</child>
+			<child optional="false">
+				<id>51</id>
+			</child>
+			<child optional="false">
+				<id>52</id>
+			</child>
+			<child optional="false">
+				<id>53</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="48" name="DDBJ_Amino_Acid" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>47</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>49</id>
+					<name>Entrez_GenBank</name>
+				</constraint_element>
+				<constraint_element>
+					<id>50</id>
+					<name>PIR</name>
+				</constraint_element>
+				<constraint_element>
+					<id>51</id>
+					<name>SWISS_PROT</name>
+				</constraint_element>
+				<constraint_element>
+					<id>52</id>
+					<name>TREMBL</name>
+				</constraint_element>
+				<constraint_element>
+					<id>53</id>
+					<name>UniProt</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="49" name="Entrez_GenBank" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>47</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>48</id>
+					<name>DDBJ_Amino_Acid</name>
+				</constraint_element>
+				<constraint_element>
+					<id>50</id>
+					<name>PIR</name>
+				</constraint_element>
+				<constraint_element>
+					<id>51</id>
+					<name>SWISS_PROT</name>
+				</constraint_element>
+				<constraint_element>
+					<id>52</id>
+					<name>TREMBL</name>
+				</constraint_element>
+				<constraint_element>
+					<id>53</id>
+					<name>UniProt</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="50" name="PIR" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>47</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>48</id>
+					<name>DDBJ_Amino_Acid</name>
+				</constraint_element>
+				<constraint_element>
+					<id>49</id>
+					<name>Entrez_GenBank</name>
+				</constraint_element>
+				<constraint_element>
+					<id>51</id>
+					<name>SWISS_PROT</name>
+				</constraint_element>
+				<constraint_element>
+					<id>52</id>
+					<name>TREMBL</name>
+				</constraint_element>
+				<constraint_element>
+					<id>53</id>
+					<name>UniProt</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="51" name="SWISS_PROT" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>47</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>48</id>
+					<name>DDBJ_Amino_Acid</name>
+				</constraint_element>
+				<constraint_element>
+					<id>49</id>
+					<name>Entrez_GenBank</name>
+				</constraint_element>
+				<constraint_element>
+					<id>50</id>
+					<name>PIR</name>
+				</constraint_element>
+				<constraint_element>
+					<id>52</id>
+					<name>TREMBL</name>
+				</constraint_element>
+				<constraint_element>
+					<id>53</id>
+					<name>UniProt</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="52" name="TREMBL" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>47</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>48</id>
+					<name>DDBJ_Amino_Acid</name>
+				</constraint_element>
+				<constraint_element>
+					<id>49</id>
+					<name>Entrez_GenBank</name>
+				</constraint_element>
+				<constraint_element>
+					<id>50</id>
+					<name>PIR</name>
+				</constraint_element>
+				<constraint_element>
+					<id>51</id>
+					<name>SWISS_PROT</name>
+				</constraint_element>
+				<constraint_element>
+					<id>53</id>
+					<name>UniProt</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="53" name="UniProt" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>47</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>48</id>
+					<name>DDBJ_Amino_Acid</name>
+				</constraint_element>
+				<constraint_element>
+					<id>49</id>
+					<name>Entrez_GenBank</name>
+				</constraint_element>
+				<constraint_element>
+					<id>50</id>
+					<name>PIR</name>
+				</constraint_element>
+				<constraint_element>
+					<id>51</id>
+					<name>SWISS_PROT</name>
+				</constraint_element>
+				<constraint_element>
+					<id>52</id>
+					<name>TREMBL</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="54" name="sequence_file_formats" optional="true" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>55</id>
+			</child>
+			<child optional="false">
+				<id>71</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="55" name="multiple_sequence_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>54</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>71</id>
+					<name>single_sequence_format</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>56</id>
+			</child>
+			<child optional="false">
+				<id>57</id>
+			</child>
+			<child optional="false">
+				<id>58</id>
+			</child>
+			<child optional="false">
+				<id>59</id>
+			</child>
+			<child optional="false">
+				<id>60</id>
+			</child>
+			<child optional="false">
+				<id>61</id>
+			</child>
+			<child optional="false">
+				<id>62</id>
+			</child>
+			<child optional="false">
+				<id>63</id>
+			</child>
+			<child optional="false">
+				<id>64</id>
+			</child>
+			<child optional="false">
+				<id>65</id>
+			</child>
+			<child optional="false">
+				<id>66</id>
+			</child>
+			<child optional="false">
+				<id>67</id>
+			</child>
+			<child optional="false">
+				<id>68</id>
+			</child>
+			<child optional="false">
+				<id>69</id>
+			</child>
+			<child optional="false">
+				<id>70</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="56" name="AMPS_block_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>55</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>57</id>
+					<name>DNA_strider_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>58</id>
+					<name>GCG_MSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>59</id>
+					<name>IG_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>60</id>
+					<name>Jackknifer_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>61</id>
+					<name>Pfam_Stockholm_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>62</id>
+					<name>asn1_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>63</id>
+					<name>clustalw_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>64</id>
+					<name>codata_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>65</id>
+					<name>fitch_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>66</id>
+					<name>mega_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>67</id>
+					<name>nexus_paup_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>68</id>
+					<name>phylip_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>69</id>
+					<name>selex_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>70</id>
+					<name>treecon</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="57" name="DNA_strider_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>55</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>56</id>
+					<name>AMPS_block_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>58</id>
+					<name>GCG_MSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>59</id>
+					<name>IG_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>60</id>
+					<name>Jackknifer_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>61</id>
+					<name>Pfam_Stockholm_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>62</id>
+					<name>asn1_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>63</id>
+					<name>clustalw_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>64</id>
+					<name>codata_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>65</id>
+					<name>fitch_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>66</id>
+					<name>mega_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>67</id>
+					<name>nexus_paup_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>68</id>
+					<name>phylip_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>69</id>
+					<name>selex_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>70</id>
+					<name>treecon</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="58" name="GCG_MSF_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>55</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>56</id>
+					<name>AMPS_block_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>57</id>
+					<name>DNA_strider_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>59</id>
+					<name>IG_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>60</id>
+					<name>Jackknifer_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>61</id>
+					<name>Pfam_Stockholm_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>62</id>
+					<name>asn1_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>63</id>
+					<name>clustalw_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>64</id>
+					<name>codata_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>65</id>
+					<name>fitch_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>66</id>
+					<name>mega_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>67</id>
+					<name>nexus_paup_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>68</id>
+					<name>phylip_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>69</id>
+					<name>selex_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>70</id>
+					<name>treecon</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="59" name="IG_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>55</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>56</id>
+					<name>AMPS_block_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>57</id>
+					<name>DNA_strider_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>58</id>
+					<name>GCG_MSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>60</id>
+					<name>Jackknifer_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>61</id>
+					<name>Pfam_Stockholm_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>62</id>
+					<name>asn1_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>63</id>
+					<name>clustalw_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>64</id>
+					<name>codata_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>65</id>
+					<name>fitch_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>66</id>
+					<name>mega_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>67</id>
+					<name>nexus_paup_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>68</id>
+					<name>phylip_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>69</id>
+					<name>selex_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>70</id>
+					<name>treecon</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="60" name="Jackknifer_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>55</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>56</id>
+					<name>AMPS_block_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>57</id>
+					<name>DNA_strider_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>58</id>
+					<name>GCG_MSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>59</id>
+					<name>IG_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>61</id>
+					<name>Pfam_Stockholm_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>62</id>
+					<name>asn1_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>63</id>
+					<name>clustalw_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>64</id>
+					<name>codata_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>65</id>
+					<name>fitch_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>66</id>
+					<name>mega_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>67</id>
+					<name>nexus_paup_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>68</id>
+					<name>phylip_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>69</id>
+					<name>selex_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>70</id>
+					<name>treecon</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="61" name="Pfam_Stockholm_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>55</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>56</id>
+					<name>AMPS_block_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>57</id>
+					<name>DNA_strider_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>58</id>
+					<name>GCG_MSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>59</id>
+					<name>IG_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>60</id>
+					<name>Jackknifer_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>62</id>
+					<name>asn1_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>63</id>
+					<name>clustalw_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>64</id>
+					<name>codata_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>65</id>
+					<name>fitch_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>66</id>
+					<name>mega_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>67</id>
+					<name>nexus_paup_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>68</id>
+					<name>phylip_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>69</id>
+					<name>selex_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>70</id>
+					<name>treecon</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="62" name="asn1_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>55</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>56</id>
+					<name>AMPS_block_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>57</id>
+					<name>DNA_strider_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>58</id>
+					<name>GCG_MSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>59</id>
+					<name>IG_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>60</id>
+					<name>Jackknifer_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>61</id>
+					<name>Pfam_Stockholm_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>63</id>
+					<name>clustalw_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>64</id>
+					<name>codata_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>65</id>
+					<name>fitch_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>66</id>
+					<name>mega_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>67</id>
+					<name>nexus_paup_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>68</id>
+					<name>phylip_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>69</id>
+					<name>selex_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>70</id>
+					<name>treecon</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="63" name="clustalw_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>55</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>56</id>
+					<name>AMPS_block_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>57</id>
+					<name>DNA_strider_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>58</id>
+					<name>GCG_MSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>59</id>
+					<name>IG_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>60</id>
+					<name>Jackknifer_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>61</id>
+					<name>Pfam_Stockholm_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>62</id>
+					<name>asn1_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>64</id>
+					<name>codata_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>65</id>
+					<name>fitch_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>66</id>
+					<name>mega_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>67</id>
+					<name>nexus_paup_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>68</id>
+					<name>phylip_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>69</id>
+					<name>selex_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>70</id>
+					<name>treecon</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="64" name="codata_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>55</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>56</id>
+					<name>AMPS_block_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>57</id>
+					<name>DNA_strider_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>58</id>
+					<name>GCG_MSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>59</id>
+					<name>IG_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>60</id>
+					<name>Jackknifer_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>61</id>
+					<name>Pfam_Stockholm_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>62</id>
+					<name>asn1_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>63</id>
+					<name>clustalw_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>65</id>
+					<name>fitch_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>66</id>
+					<name>mega_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>67</id>
+					<name>nexus_paup_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>68</id>
+					<name>phylip_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>69</id>
+					<name>selex_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>70</id>
+					<name>treecon</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="65" name="fitch_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>55</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>56</id>
+					<name>AMPS_block_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>57</id>
+					<name>DNA_strider_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>58</id>
+					<name>GCG_MSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>59</id>
+					<name>IG_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>60</id>
+					<name>Jackknifer_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>61</id>
+					<name>Pfam_Stockholm_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>62</id>
+					<name>asn1_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>63</id>
+					<name>clustalw_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>64</id>
+					<name>codata_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>66</id>
+					<name>mega_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>67</id>
+					<name>nexus_paup_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>68</id>
+					<name>phylip_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>69</id>
+					<name>selex_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>70</id>
+					<name>treecon</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="66" name="mega_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>55</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>56</id>
+					<name>AMPS_block_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>57</id>
+					<name>DNA_strider_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>58</id>
+					<name>GCG_MSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>59</id>
+					<name>IG_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>60</id>
+					<name>Jackknifer_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>61</id>
+					<name>Pfam_Stockholm_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>62</id>
+					<name>asn1_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>63</id>
+					<name>clustalw_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>64</id>
+					<name>codata_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>65</id>
+					<name>fitch_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>67</id>
+					<name>nexus_paup_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>68</id>
+					<name>phylip_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>69</id>
+					<name>selex_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>70</id>
+					<name>treecon</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="67" name="nexus_paup_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>55</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>56</id>
+					<name>AMPS_block_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>57</id>
+					<name>DNA_strider_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>58</id>
+					<name>GCG_MSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>59</id>
+					<name>IG_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>60</id>
+					<name>Jackknifer_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>61</id>
+					<name>Pfam_Stockholm_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>62</id>
+					<name>asn1_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>63</id>
+					<name>clustalw_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>64</id>
+					<name>codata_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>65</id>
+					<name>fitch_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>66</id>
+					<name>mega_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>68</id>
+					<name>phylip_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>69</id>
+					<name>selex_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>70</id>
+					<name>treecon</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="68" name="phylip_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>55</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>56</id>
+					<name>AMPS_block_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>57</id>
+					<name>DNA_strider_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>58</id>
+					<name>GCG_MSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>59</id>
+					<name>IG_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>60</id>
+					<name>Jackknifer_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>61</id>
+					<name>Pfam_Stockholm_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>62</id>
+					<name>asn1_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>63</id>
+					<name>clustalw_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>64</id>
+					<name>codata_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>65</id>
+					<name>fitch_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>66</id>
+					<name>mega_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>67</id>
+					<name>nexus_paup_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>69</id>
+					<name>selex_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>70</id>
+					<name>treecon</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="69" name="selex_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>55</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>56</id>
+					<name>AMPS_block_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>57</id>
+					<name>DNA_strider_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>58</id>
+					<name>GCG_MSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>59</id>
+					<name>IG_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>60</id>
+					<name>Jackknifer_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>61</id>
+					<name>Pfam_Stockholm_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>62</id>
+					<name>asn1_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>63</id>
+					<name>clustalw_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>64</id>
+					<name>codata_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>65</id>
+					<name>fitch_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>66</id>
+					<name>mega_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>67</id>
+					<name>nexus_paup_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>68</id>
+					<name>phylip_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>70</id>
+					<name>treecon</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="70" name="treecon" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>55</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>56</id>
+					<name>AMPS_block_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>57</id>
+					<name>DNA_strider_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>58</id>
+					<name>GCG_MSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>59</id>
+					<name>IG_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>60</id>
+					<name>Jackknifer_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>61</id>
+					<name>Pfam_Stockholm_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>62</id>
+					<name>asn1_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>63</id>
+					<name>clustalw_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>64</id>
+					<name>codata_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>65</id>
+					<name>fitch_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>66</id>
+					<name>mega_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>67</id>
+					<name>nexus_paup_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>68</id>
+					<name>phylip_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>69</id>
+					<name>selex_format</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="71" name="single_sequence_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>54</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative">
+				<constraint_element>
+					<id>55</id>
+					<name>multiple_sequence_format</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>72</id>
+			</child>
+			<child optional="false">
+				<id>73</id>
+			</child>
+			<child optional="false">
+				<id>74</id>
+			</child>
+			<child optional="false">
+				<id>75</id>
+			</child>
+			<child optional="false">
+				<id>76</id>
+			</child>
+			<child optional="false">
+				<id>77</id>
+			</child>
+			<child optional="false">
+				<id>78</id>
+			</child>
+			<child optional="false">
+				<id>79</id>
+			</child>
+			<child optional="false">
+				<id>80</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="72" name="GDE_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>71</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>73</id>
+					<name>NBRF_PIR_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>74</id>
+					<name>RSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>75</id>
+					<name>acedb_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>76</id>
+					<name>fasta_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>77</id>
+					<name>gff_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>78</id>
+					<name>raw_sequence_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>79</id>
+					<name>staden_experiment_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>80</id>
+					<name>text_plain_format</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="73" name="NBRF_PIR_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>71</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>72</id>
+					<name>GDE_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>74</id>
+					<name>RSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>75</id>
+					<name>acedb_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>76</id>
+					<name>fasta_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>77</id>
+					<name>gff_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>78</id>
+					<name>raw_sequence_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>79</id>
+					<name>staden_experiment_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>80</id>
+					<name>text_plain_format</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="74" name="RSF_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>71</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>72</id>
+					<name>GDE_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>73</id>
+					<name>NBRF_PIR_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>75</id>
+					<name>acedb_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>76</id>
+					<name>fasta_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>77</id>
+					<name>gff_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>78</id>
+					<name>raw_sequence_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>79</id>
+					<name>staden_experiment_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>80</id>
+					<name>text_plain_format</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="75" name="acedb_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>71</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>72</id>
+					<name>GDE_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>73</id>
+					<name>NBRF_PIR_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>74</id>
+					<name>RSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>76</id>
+					<name>fasta_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>77</id>
+					<name>gff_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>78</id>
+					<name>raw_sequence_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>79</id>
+					<name>staden_experiment_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>80</id>
+					<name>text_plain_format</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="76" name="fasta_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>71</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>72</id>
+					<name>GDE_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>73</id>
+					<name>NBRF_PIR_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>74</id>
+					<name>RSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>75</id>
+					<name>acedb_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>77</id>
+					<name>gff_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>78</id>
+					<name>raw_sequence_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>79</id>
+					<name>staden_experiment_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>80</id>
+					<name>text_plain_format</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="77" name="gff_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>71</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>72</id>
+					<name>GDE_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>73</id>
+					<name>NBRF_PIR_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>74</id>
+					<name>RSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>75</id>
+					<name>acedb_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>76</id>
+					<name>fasta_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>78</id>
+					<name>raw_sequence_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>79</id>
+					<name>staden_experiment_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>80</id>
+					<name>text_plain_format</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="78" name="raw_sequence_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>71</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>72</id>
+					<name>GDE_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>73</id>
+					<name>NBRF_PIR_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>74</id>
+					<name>RSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>75</id>
+					<name>acedb_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>76</id>
+					<name>fasta_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>77</id>
+					<name>gff_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>79</id>
+					<name>staden_experiment_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>80</id>
+					<name>text_plain_format</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="79" name="staden_experiment_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>71</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>72</id>
+					<name>GDE_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>73</id>
+					<name>NBRF_PIR_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>74</id>
+					<name>RSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>75</id>
+					<name>acedb_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>76</id>
+					<name>fasta_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>77</id>
+					<name>gff_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>78</id>
+					<name>raw_sequence_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>80</id>
+					<name>text_plain_format</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="80" name="text_plain_format" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>71</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>72</id>
+					<name>GDE_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>73</id>
+					<name>NBRF_PIR_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>74</id>
+					<name>RSF_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>75</id>
+					<name>acedb_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>76</id>
+					<name>fasta_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>77</id>
+					<name>gff_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>78</id>
+					<name>raw_sequence_format</name>
+				</constraint_element>
+				<constraint_element>
+					<id>79</id>
+					<name>staden_experiment_format</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="81" name="substitution_matrix" optional="true" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<constraints>
+			<constraint type="alternative"/>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements>
+			<child optional="false">
+				<id>82</id>
+			</child>
+			<child optional="false">
+				<id>83</id>
+			</child>
+		</childElements>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="82" name="PAM" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>81</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>83</id>
+					<name>BLOSUM</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<element dynamic="false" id="83" name="BLOSUM" optional="false" type="feature">
+		<path_absolut/>
+		<path_relativ/>
+		<parentElement>
+			<id>81</id>
+		</parentElement>
+		<constraints>
+			<constraint type="alternative">
+				<constraint_element>
+					<id>82</id>
+					<name>PAM</name>
+				</constraint_element>
+			</constraint>
+			<constraint type="commulative"/>
+			<constraint type="requires"/>
+			<constraint type="excludes"/>
+		</constraints>
+		<childElements/>
+		<order/>
+		<classes/>
+	</element>
+	<properties/>
+	<furtherConstraints/>
+</plm>

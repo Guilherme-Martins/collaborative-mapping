@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<plm name="testeCreate">
+    <element id="1" name="nameFeature-1" optional="false" type="feature">
+        <childElements>
+            <child optional="false">
+                <id>2</id>
+            </child>
+            <child optional="false">
+                <id>3</id>
+            </child>
+        </childElements>
+    </element>
+    <element id="2" name="nameFeature-2" optional="false" type="feature">
+        <childElements>
+            <child optional="false">
+                <id>3</id>
+            </child>
+            <child optional="false">
+                <id>4</id>
+            </child>
+        </childElements>
+    </element>
+    <element id="3" name="nameFeature-3" optional="false" type="feature">
+        <childElements>
+            <child optional="false">
+                <id>4</id>
+            </child>
+            <child optional="false">
+                <id>5</id>
+            </child>
+        </childElements>
+    </element>
+</plm>
