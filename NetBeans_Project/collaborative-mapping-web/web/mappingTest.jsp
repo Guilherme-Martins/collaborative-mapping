@@ -4,6 +4,9 @@
     Author     : Guilherme Martins
 --%>
 
+<%@page import="br.ufjf.mapping.map.MappingListPair"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="br.ufjf.mapping.map.MappingPair"%>
 <%@page import="br.ufjf.mapping.map.FileMapping"%>
 <%@page import="br.ufjf.mapping.map.MappingRead"%>
 <%@page import="br.ufjf.mapping.map.MappingCreate"%>
@@ -20,7 +23,10 @@
         <%
             MappingCreate mc = new MappingCreate();
             MappingRead mr = new MappingRead();
+            MappingPair mp = new MappingPair();
             FileMapping fm = new FileMapping();
+            
+            MappingListPair mlp = new MappingListPair();
         %>
         
         <%
@@ -31,7 +37,11 @@
         %>
         
         <%
-            out.println(fm.getMappingRead().extractDatas(mr.readMappingFile("SequenceAligningMappingv1c"))+"<BR><BR>");
+            //out.println(fm.getMappingRead().extractDatas(fm.getMappingRead().readMappingFile("SequenceAligningMappingv1c"))+"<BR><BR>");
+        %>
+        
+        <%
+            out.println(fm.getMappingCreate().createFileMapping("XmlMappingFile_v02", mlp)+"<BR><BR>");
         %>
         
         <p><a href="index.jsp">Collaborative Mapping - Homepage</a></p>

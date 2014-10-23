@@ -20,21 +20,33 @@ public class MappingCreate {
     /**
      *
      * @param nameFile
+     * @param mappingPair
      * @return
      */
-    public String createFileMapping(String nameFile){
+    public String createFileMapping(String nameFile, MappingListPair mappingListPair){
         
         MappingStruct mappingStruct = new MappingStruct();        
         mappingStruct.setMapping(new ArrayList<Mapping>());
         
-        mappingStruct.setMapName(nameFile);
+        for(int j = 1; j <= 20; j++){
+            MappingPair map = new MappingPair();
+            map.createPairGeneric(mappingListPair.getLastIdPair());
+            mappingListPair.updateIdPair();
+            mappingListPair.getMappingListPair().add(map);
+        }
         
-        for(int i = 1; i <= 10; i++){
+        mappingStruct.setMapName(nameFile);
+        mappingStruct.setFirstFileName(nameFile+"-01");
+        mappingStruct.setSecondFileName(nameFile+"-02");
+        
+        for(MappingPair mp: mappingListPair.getMappingListPair()){
             Mapping m = new Mapping();
-            m.setId(i);
-            m.setClassName("testeClasse-"+i);
-            m.setFeatureName("testeFeature-"+i);
-            mappingStruct.getMapping().add(m);
+            
+            m.setId(mp.getIdPair());            
+            m.setClassName(mp.getFirst());
+            m.setFeatureName(mp.getSecond());
+            
+            mappingStruct.getMapping().add(m);        
         }
                 
         String res = "Fail Mapping Create!";

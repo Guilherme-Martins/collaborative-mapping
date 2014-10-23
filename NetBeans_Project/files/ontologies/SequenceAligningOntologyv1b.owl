@@ -317,6 +317,12 @@
 
     <owl:Class rdf:about="http://plscience.superdignus.com/SequenceAligningOntology#ClustalW2">
         <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#performs_task"/>
+                <owl:allValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#multiple_global_aligning"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://plscience.superdignus.com/SequenceAligningOntology#bioinformatics_algorithm"/>
@@ -333,12 +339,6 @@
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
-        </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#performs_task"/>
-                <owl:allValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#multiple_global_aligning"/>
-            </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:comment>Available at: http://www.ebi.ac.uk/Tools/msa/clustalw2/</rdfs:comment>
     </owl:Class>
@@ -656,13 +656,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#workflow_possible_tasks"/>
-                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#viewing_and_editing1"/>
+                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#sequence_grouping"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#workflow_possible_tasks"/>
-                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#sequence_grouping"/>
+                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#base_calling"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -680,7 +680,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#workflow_possible_tasks"/>
-                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#base_calling"/>
+                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#viewing_and_editing1"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#Sanger"/>
@@ -850,13 +850,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#workflow_possible_tasks"/>
-                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#viewing_and_editing1"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#workflow_possible_tasks"/>
-                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#vector_masking"/>
+                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#sequence_grouping"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -868,7 +862,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#workflow_possible_tasks"/>
-                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#aligning"/>
+                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#vector_masking"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -880,7 +874,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#workflow_possible_tasks"/>
-                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#sequence_grouping"/>
+                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#aligning"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#workflow_possible_tasks"/>
+                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#viewing_and_editing1"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>#Choose the last task to compose the workflow that is being built: ALIGNING, ASSEMBLY, BASE_CALLING, VECTOR_MASKING, SEQUENCE_GROUPING or VIEW_AND_EDITING1 OR VIEW_AND_EDITING2.&amp;bioinformatics_task$N</rdfs:comment>
@@ -1033,6 +1033,7 @@
     <!-- http://plscience.superdignus.com/SequenceAligningOntology#application_type -->
 
     <owl:Class rdf:about="http://plscience.superdignus.com/SequenceAligningOntology#application_type">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
         <rdfs:comment>$N</rdfs:comment>
     </owl:Class>
     
@@ -1101,6 +1102,7 @@
     <!-- http://plscience.superdignus.com/SequenceAligningOntology#bioinformatics_concept -->
 
     <owl:Class rdf:about="http://plscience.superdignus.com/SequenceAligningOntology#bioinformatics_concept">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
         <rdfs:comment>$N</rdfs:comment>
     </owl:Class>
     
@@ -1391,13 +1393,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#task_performed_by"/>
-                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#Smith_Waterman"/>
+                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#BLAST_Basic_Local_Alignment_Search_Tool"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#task_performed_by"/>
-                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#BLAST_Basic_Local_Alignment_Search_Tool"/>
+                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#Smith_Waterman"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>$S%</rdfs:comment>
@@ -1517,13 +1519,13 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#previous_task"/>
-                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#base_calling"/>
+                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#vector_masking"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#previous_task"/>
-                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#vector_masking"/>
+                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#base_calling"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>#Choose the previous task for this workflow: BASE_CALLING or VECTOR_MASKING.&amp;bioinformatics_task$S%</rdfs:comment>
@@ -1587,14 +1589,14 @@
         <rdfs:subClassOf rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#bioinformatics_task"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#task_performed_by"/>
-                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#Cross_match"/>
+                <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#previous_task"/>
+                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#base_calling"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#previous_task"/>
-                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#base_calling"/>
+                <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#task_performed_by"/>
+                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#Cross_match"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>#Select now BASE_CALLING.&amp;bioinformatics_task$S%</rdfs:comment>
@@ -1608,6 +1610,12 @@
         <rdfs:subClassOf rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#bioinformatics_task"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#task_performed_by"/>
+                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#PHRAP_View"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#previous_task"/>
                 <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#sequence_grouping"/>
             </owl:Restriction>
@@ -1616,12 +1624,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#task_performed_by"/>
                 <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#Consed"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#task_performed_by"/>
-                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#PHRAP_View"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>#Select now SEQUENCE_GROUPING.&amp;bioinformatics_task$N%</rdfs:comment>
@@ -1635,8 +1637,8 @@
         <rdfs:subClassOf rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#bioinformatics_task"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#previous_task"/>
-                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#aligning"/>
+                <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#task_performed_by"/>
+                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#Consed"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1647,8 +1649,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#task_performed_by"/>
-                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#Consed"/>
+                <owl:onProperty rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#previous_task"/>
+                <owl:someValuesFrom rdf:resource="http://plscience.superdignus.com/SequenceAligningOntology#aligning"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>#Select now ALIGNING.&amp;bioinformatics_task$N%</rdfs:comment>

@@ -4,11 +4,7 @@
     Author     : Guilherme Martins
 --%>
 
-<%@page import="br.ufjf.mapping.feature.FeatureCreate"%>
-<%@page import="br.ufjf.mapping.feature.FeatureRead"%>
-<%@page import="br.ufjf.mapping.map.MappingCreate"%>
-<%@page import="br.ufjf.mapping.files.FileOntology"%>
-<%@page import="br.ufjf.mapping.memory.ConnectDB"%>
+
 <%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -20,6 +16,12 @@
         <h1>Collaborative Mapping - Homepage</h1>
         <BR>
         
+        <h2>Suggestion Test</h2>
+        <p><a href="suggestionTest.jsp">Collaborative Mapping - Suggestion</a></p>
+        
+        <BR>
+        
+        <h2>Isolated Test</h2>
         <p><a href="databaseTest.jsp">Collaborative Mapping - Database</a></p>
         <p><a href="mappingTest.jsp">Collaborative Mapping - Mapping</a></p>
         <p><a href="featureTest.jsp">Collaborative Mapping - Features Model</a></p>

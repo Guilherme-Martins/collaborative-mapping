@@ -19,6 +19,8 @@ public class MappingStruct {
     
     private ArrayList<Mapping> mapping = new ArrayList<>();
     private String mapName;
+    private String firstFileName;
+    private String secondFileName;
 
     /**
      *
@@ -39,7 +41,7 @@ public class MappingStruct {
     /**
      * @return the mapName
      */
-    @XmlAttribute(name = "name")
+    @XmlAttribute(name = "nameMap")
     public String getMapName() {
         return mapName;
     }
@@ -49,5 +51,35 @@ public class MappingStruct {
      */
     public void setMapName(String mapName) {
         this.mapName = mapName;
+    }
+
+    /**
+     * @return the firstFileName
+     */
+    @XmlAttribute(name = "nameFile1")
+    public String getFirstFileName() {
+        return firstFileName;
+    }
+
+    /**
+     * @param firstFileName the firstFileName to set
+     */
+    public void setFirstFileName(String firstFileName) {
+        this.firstFileName = firstFileName;
+    }
+
+    /**
+     * @return the secondFileName
+     */
+    @XmlAttribute(name = "nameFile2")
+    public String getSecondFileName() {
+        return secondFileName;
+    }
+
+    /**
+     * @param secondFileName the secondFileName to set
+     */
+    public void setSecondFileName(String secondFileName) {
+        this.secondFileName = secondFileName;
     }
 }
