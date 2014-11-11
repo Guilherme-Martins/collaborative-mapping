@@ -32,7 +32,7 @@
         %>
         
         <%
-            //out.println(sdb.save("maria", "silva")+"<BR><BR>");
+            //out.println(sdb.save("edu")+"<BR><BR>");
         %>
         
         <p><a href="index.jsp">Collaborative Mapping - Homepage</a></p>

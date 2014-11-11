@@ -15,21 +15,20 @@ import java.sql.SQLException;
  */
 public class StoreDB {
     
-    public String save(String name, String lastName) throws SQLException{
+    public String save(String name) throws SQLException{
         
         String save = "Erro de Gravação!";
         // cria um preparedStatement
         try ( // conectando
             Connection con = ConnectDB.getConnectDB()) {
             // cria um preparedStatement
-            String sql = "insert into teste" +
-                    " (nome,sobrenome)" +
-                    " values (?,?)";
+            String sql = "insert into user" +
+                    " (nameUser)" +
+                    " values (?)";
             // preenche os valores
             try (PreparedStatement stmt = con.prepareStatement(sql)) {
                 // preenche os valores
-                stmt.setString(1, name);
-                stmt.setString(2, lastName);
+                stmt.setString(1, name);              
                 
                 // executa
                 stmt.execute();

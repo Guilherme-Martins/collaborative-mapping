@@ -34,14 +34,14 @@ public class ReadDB {
 
         ResultSet r = null;
         try {
-            r = s.executeQuery("Select * from teste");
+            r = s.executeQuery("select * from user");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         result = "<br>NOMES:<br>";
         try {
             while (r.next()){
-            result = result + r.getString("nome") + " " + r.getString("sobrenome") + "<br>";
+            result = result + r.getString("idUser") + " " + r.getString("nameUser") + "<br>";
               }
         } catch (SQLException e) {
               // TODO Auto-generated catch block
