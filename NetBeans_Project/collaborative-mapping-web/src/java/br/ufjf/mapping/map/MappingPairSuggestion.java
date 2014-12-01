@@ -9,11 +9,42 @@ package br.ufjf.mapping.map;
  *
  * @author Guilherme Martins
  */
-public class MappingPair {
+public class MappingPairSuggestion {
+    
     private String first;
     private String second;
     private int idPair;
+    private int validity = 0;
+    private String comment = "";
 
+    /**
+     *
+     * @param first
+     * @param second
+     * @param idPair
+     */
+    public void createPair(String first, String second, int idPair){
+        this.first = first;
+        this.second = second;
+        this.idPair = idPair;
+    }
+    
+    /**
+     *
+     * @param first
+     * @param second
+     * @param idPair
+     * @param validaty
+     * @param comment
+     */
+    public void createPair(String first, String second, int idPair, int validaty, String comment){
+        this.first = first;
+        this.second = second;
+        this.idPair = idPair;
+        this.validity = validity;
+        this.comment = comment;
+    }
+    
     /**
      * @return the first
      */
@@ -67,14 +98,30 @@ public class MappingPair {
     }
     
     /**
-     *
-     * @param first
-     * @param second
-     * @param idPair
+     * @return the validaty
      */
-    public void createPair(String first, String second, int idPair){
-        this.first = first;
-        this.second = second;
-        this.idPair = idPair;
+    public int getValidity() {
+        return validity;
+    }
+
+    /**
+     * @param validaty the validaty to set
+     */
+    public void setValidity(int validity) {
+        this.validity = validity;
+    }
+
+    /**
+     * @return the comment
+     */
+    public String getComment() {
+        return comment;
+    }
+
+    /**
+     * @param comment the comment to set
+     */
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

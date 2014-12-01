@@ -5,8 +5,8 @@
  */
 package br.ufjf.mapping.suggestion;
 
-import br.ufjf.mapping.map.MappingListPair;
-import br.ufjf.mapping.map.MappingPair;
+import br.ufjf.mapping.map.MappingListPairSuggestion;
+import br.ufjf.mapping.map.MappingPairSuggestion;
 import java.util.ArrayList;
 
 /**
@@ -15,22 +15,59 @@ import java.util.ArrayList;
  */
 public class SuggestionPairText {
     
-    public MappingListPair listSuggestionPair(ArrayList<String> list_1, ArrayList<String> list_2){
+    public MappingListPairSuggestion listSuggestionPair(ArrayList<String> list_1, ArrayList<String> list_2, int lastPair){
         
-        MappingListPair mlp = new MappingListPair();
+        MappingListPairSuggestion mlps = new MappingListPairSuggestion();
         
+        mlps.setIdPair(lastPair + 1);
+        
+        //CASAMENTO_1: relaciona os elementos das duas listas se eles possuirem a mesma grafia.
         for(String s1: list_1){
             for(String s2: list_2){
                 if(equalString(s1, s2)){
-                    MappingPair mp = new MappingPair();
-                    mp.createPair(s1, s2, mlp.getLastIdPair());
-                    mlp.updateIdPair();
-                    mlp.getMappingListPair().add(mp);
+                    MappingPairSuggestion mps = new MappingPairSuggestion();
+                    String e1 = s1;
+                    String e2 = s2;
+                    
+                    mps.createPair(e1, e2, mlps.getLastIdPair());
+                    mlps.updateIdPair();
+                    mlps.getMappingListPairSuggestion().add(mps);
                 }
             }
         }
         
-        return mlp;
+        //Remove da lista os elementos adicionados no CASAMENTO_1.
+        for(MappingPairSuggestion mps: mlps.getMappingListPairSuggestion()){
+            for(String s1: list_1){
+                if(mps.getFirst().equals(s1)){
+                    list_1.remove(s1);
+                    break;
+                }
+            }
+            for(String s2: list_2){
+                if(mps.getSecond().equals(s2)){
+                    list_2.remove(s2);
+                    break;
+                }
+            }
+        }
+        
+        //CASAMENTO_2: relaciona os elementos em que seus nomes forem uma 'substring' um do outro, ou o inverso. 
+        for(String s1: list_1){
+            for(String s2: list_2){
+                if(containString(s1, s2)){
+                    MappingPairSuggestion mps = new MappingPairSuggestion();
+                    String e1 = s1;
+                    String e2 = s2;
+                    
+                    mps.createPair(e1, e2, mlps.getLastIdPair());
+                    mlps.updateIdPair();
+                    mlps.getMappingListPairSuggestion().add(mps);
+                }
+            }
+        }
+        
+        return mlps;
     }
     
     public boolean equalString(String text_1, String text_2){

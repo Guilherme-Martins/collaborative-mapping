@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mappingStruct nameFile1="SequenceAligningFeatureModelv1b.xml" nameMap="TesteMap01" nameFile2="SequenceAligningOntologyv1b.owl">
+    <mapping id="4">
+        <className>application_type</className>
+        <featureName>application_type</featureName>
+    </mapping>
+    <mapping id="5">
+        <className>isolated_application</className>
+        <featureName>isolated_application</featureName>
+    </mapping>
+    <mapping id="6">
+        <className>workflow</className>
+        <featureName>workflow</featureName>
+    </mapping>
+    <mapping id="7">
+        <className>Sanger</className>
+        <featureName>Sanger</featureName>
+    </mapping>
+    <mapping id="8">
+        <className>NGS</className>
+        <featureName>NGS</featureName>
+    </mapping>
+    <mapping id="9">
+        <className>FLX_454</className>
+        <featureName>FLX_454</featureName>
+    </mapping>
+    <mapping id="10">
+        <className>Solexa</className>
+        <featureName>Solexa</featureName>
+    </mapping>
+    <mapping id="11">
+        <className>SOLiDSystem</className>
+        <featureName>SOLiDSystem</featureName>
+    </mapping>
+    <mapping id="12">
+        <className>tSMS</className>
+        <featureName>tSMS</featureName>
+    </mapping>
+    <mapping id="13">
+        <className>bioinformatics_task</className>
+        <featureName>bioinformatics_task</featureName>
+    </mapping>
+    <mapping id="14">
+        <className>aligning</className>
+        <featureName>aligning</featureName>
+    </mapping>
+    <mapping id="15">
+        <className>global_aligning</className>
+        <featureName>global_aligning</featureName>
+    </mapping>
+    <mapping id="16">
+        <className>multiple_global_aligning</className>
+        <featureName>multiple_global_aligning</featureName>
+    </mapping>
+    <mapping id="17">
+        <className>local_aligning</className>
+        <featureName>local_aligning</featureName>
+    </mapping>
+    <mapping id="18">
+        <className>pairwise_local_aligning</className>
+        <featureName>pairwise_local_aligning</featureName>
+    </mapping>
+    <mapping id="19">
+        <className>multiple_local_aligning</className>
+        <featureName>multiple_local_aligning</featureName>
+    </mapping>
+    <mapping id="20">
+        <className>assembly</className>
+        <featureName>assembly</featureName>
+    </mapping>
+    <mapping id="21">
+        <className>base_calling</className>
+        <featureName>base_calling</featureName>
+    </mapping>
+    <mapping id="22">
+        <className>sequence_grouping</className>
+        <featureName>sequence_grouping</featureName>
+    </mapping>
+    <mapping id="23">
+        <className>vector_masking</className>
+        <featureName>vector_masking</featureName>
+    </mapping>
+    <mapping id="24">
+        <className>viewing_and_editing1</className>
+        <featureName>viewing_and_editing1</featureName>
+    </mapping>
+    <mapping id="25">
+        <className>viewing_and_editing2</className>
+        <featureName>viewing_and_editing2</featureName>
+    </mapping>
+    <mapping id="26">
+        <className>bioinformatics_algorithm</className>
+        <featureName>bioinformatics_algorithm</featureName>
+    </mapping>
+    <mapping id="27">
+        <className>BLASTN</className>
+        <featureName>BLASTN</featureName>
+    </mapping>
+    <mapping id="28">
+        <className>BLASTP</className>
+        <featureName>BLASTP</featureName>
+    </mapping>
+    <mapping id="29">
+        <className>BLASTX</className>
+        <featureName>BLASTX</featureName>
+    </mapping>
+    <mapping id="30">
+        <className>TBLASTN</className>
+        <featureName>TBLASTN</featureName>
+    </mapping>
+    <mapping id="31">
+        <className>TBLASTX</className>
+        <featureName>TBLASTX</featureName>
+    </mapping>
+    <mapping id="32">
+        <className>biological_sequence</className>
+        <featureName>biological_sequence</featureName>
+    </mapping>
+    <mapping id="33">
+        <className>nucleotide_sequence</className>
+        <featureName>nucleotide_sequence</featureName>
+    </mapping>
+    <mapping id="34">
+        <className>DNA_sequence</className>
+        <featureName>DNA_sequence</featureName>
+    </mapping>
+    <mapping id="35">
+        <className>RNA_sequence</className>
+        <featureName>RNA_sequence</featureName>
+    </mapping>
+    <mapping id="36">
+        <className>protein_sequence</className>
+        <featureName>protein_sequence</featureName>
+    </mapping>
+    <mapping id="37">
+        <className>sequence_database</className>
+        <featureName>sequence_database</featureName>
+    </mapping>
+    <mapping id="38">
+        <className>DDBJ</className>
+        <featureName>DDBJ</featureName>
+    </mapping>
+    <mapping id="39">
+        <className>EMBL</className>
+        <featureName>EMBL</featureName>
+    </mapping>
+    <mapping id="40">
+        <className>Unigene</className>
+        <featureName>Unigene</featureName>
+    </mapping>
+    <mapping id="41">
+        <className>dbEST</className>
+        <featureName>dbEST</featureName>
+    </mapping>
+    <mapping id="42">
+        <className>dbSNP</className>
+        <featureName>dbSNP</featureName>
+    </mapping>
+    <mapping id="43">
+        <className>est_human</className>
+        <featureName>est_human</featureName>
+    </mapping>
+    <mapping id="44">
+        <className>PIR</className>
+        <featureName>PIR</featureName>
+    </mapping>
+    <mapping id="45">
+        <className>TREMBL</className>
+        <featureName>TREMBL</featureName>
+    </mapping>
+    <mapping id="46">
+        <className>UniProt</className>
+        <featureName>UniProt</featureName>
+    </mapping>
+    <mapping id="47">
+        <className>sequence_file_formats</className>
+        <featureName>sequence_file_formats</featureName>
+    </mapping>
+    <mapping id="48">
+        <className>AMPS_block_format</className>
+        <featureName>AMPS_block_format</featureName>
+    </mapping>
+    <mapping id="49">
+        <className>DNA_strider_format</className>
+        <featureName>DNA_strider_format</featureName>
+    </mapping>
+    <mapping id="50">
+        <className>GCG_MSF_format</className>
+        <featureName>GCG_MSF_format</featureName>
+    </mapping>
+    <mapping id="51">
+        <className>IG_format</className>
+        <featureName>IG_format</featureName>
+    </mapping>
+    <mapping id="52">
+        <className>Jackknifer_format</className>
+        <featureName>Jackknifer_format</featureName>
+    </mapping>
+    <mapping id="53">
+        <className>Pfam_Stockholm_format</className>
+        <featureName>Pfam_Stockholm_format</featureName>
+    </mapping>
+    <mapping id="54">
+        <className>asn1_format</className>
+        <featureName>asn1_format</featureName>
+    </mapping>
+    <mapping id="55">
+        <className>clustalw_format</className>
+        <featureName>clustalw_format</featureName>
+    </mapping>
+    <mapping id="56">
+        <className>codata_format</className>
+        <featureName>codata_format</featureName>
+    </mapping>
+    <mapping id="57">
+        <className>fitch_format</className>
+        <featureName>fitch_format</featureName>
+    </mapping>
+    <mapping id="58">
+        <className>mega_format</className>
+        <featureName>mega_format</featureName>
+    </mapping>
+    <mapping id="59">
+        <className>nexus_paup_format</className>
+        <featureName>nexus_paup_format</featureName>
+    </mapping>
+    <mapping id="60">
+        <className>phylip_format</className>
+        <featureName>phylip_format</featureName>
+    </mapping>
+    <mapping id="61">
+        <className>selex_format</className>
+        <featureName>selex_format</featureName>
+    </mapping>
+    <mapping id="62">
+        <className>treecon</className>
+        <featureName>treecon</featureName>
+    </mapping>
+    <mapping id="63">
+        <className>GDE_format</className>
+        <featureName>GDE_format</featureName>
+    </mapping>
+    <mapping id="64">
+        <className>RSF_format</className>
+        <featureName>RSF_format</featureName>
+    </mapping>
+    <mapping id="65">
+        <className>acedb_format</className>
+        <featureName>acedb_format</featureName>
+    </mapping>
+    <mapping id="66">
+        <className>fasta_format</className>
+        <featureName>fasta_format</featureName>
+    </mapping>
+    <mapping id="67">
+        <className>gff_format</className>
+        <featureName>gff_format</featureName>
+    </mapping>
+    <mapping id="68">
+        <className>raw_sequence_format</className>
+        <featureName>raw_sequence_format</featureName>
+    </mapping>
+    <mapping id="69">
+        <className>staden_experiment_format</className>
+        <featureName>staden_experiment_format</featureName>
+    </mapping>
+    <mapping id="70">
+        <className>text_plain_format</className>
+        <featureName>text_plain_format</featureName>
+    </mapping>
+    <mapping id="71">
+        <className>PAM</className>
+        <featureName>PAM</featureName>
+    </mapping>
+    <mapping id="72">
+        <className>BLOSUM</className>
+        <featureName>BLOSUM</featureName>
+    </mapping>
+    <mapping id="73">
+        <className>sequencing_platform</className>
+        <featureName>bioinformatics_sequencing_platform</featureName>
+    </mapping>
+    <mapping id="74">
+        <className>BLAST</className>
+        <featureName>BLAST_Basic_Local_Alignment_Search_Tool</featureName>
+    </mapping>
+    <mapping id="75">
+        <className>nucleotide_database</className>
+        <featureName>nucleotide</featureName>
+    </mapping>
+    <mapping id="76">
+        <className>Genbank_EMBL</className>
+        <featureName>Genbank</featureName>
+    </mapping>
+    <mapping id="77">
+        <className>protein_databse</className>
+        <featureName>protein</featureName>
+    </mapping>
+    <mapping id="78">
+        <className>DDBJ_Amino_Acid</className>
+        <featureName>DDBJ_Amino_Acid_Database_DAD</featureName>
+    </mapping>
+    <mapping id="79">
+        <className>Entrez_GenBank</className>
+        <featureName>Entrez_GenBank_protein</featureName>
+    </mapping>
+    <mapping id="80">
+        <className>Entrez_GenBank</className>
+        <featureName>Genbank</featureName>
+    </mapping>
+    <mapping id="81">
+        <className>NBRF_PIR_format</className>
+        <featureName>PIR_format</featureName>
+    </mapping>
+    <mapping id="82">
+        <className>substitution_matrix</className>
+        <featureName>bioinformatics_substitution_matrix</featureName>
+    </mapping>
+</mappingStruct>

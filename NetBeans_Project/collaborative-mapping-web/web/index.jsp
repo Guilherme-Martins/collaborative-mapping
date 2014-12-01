@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="br.ufjf.mapping.memory.FileDB"%>
 <%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -13,18 +14,62 @@
         <title>Collaborative Mapping</title>
     </head>
     <body>
-        <h1>Collaborative Mapping - Homepage</h1>
+        <h1>Collaborative Mapping - Login</h1>
         <BR>
         
-        <h2>Suggestion Test</h2>
-        <p><a href="suggestionTest.jsp">Collaborative Mapping - Suggestion</a></p>
+        <%
+            FileDB fdb = new FileDB();
+        %>
         
-        <BR>
+        <%
+            int idUser = -1;
+            String login;
+            String password;
+            
+            if(request.getParameter("login") != null){
+                login = request.getParameter("login");
+            } else {
+                login = "";
+            }
+            
+            if(request.getParameter("password") != null){
+                password = request.getParameter("password");
+            } else {
+                password = "";
+            }
+            
+            if((session.getAttribute("idUser") != null) && (idUser != -1)){
+                idUser = (int) session.getAttribute("idUser");
+            } else {
+                idUser = fdb.getReadDB().authenticationUser(login, password);
+                session.setAttribute("idUser", idUser);
+            }
+            
+            /*
+            out.println("Sessão idUser: "+session.getAttribute("idUser")+"<BR>");
+            out.println("Request Login: "+request.getParameter("login")+"<BR>");
+            out.println("Request Password: "+request.getParameter("password")+"<BR>");
+            out.println("DB Autenticação: "+fdb.getReadDB().authenticationUser(login, password)+"<BR><BR>");
+            //request.getParameter("comment_"+pair.getIdPair())
+            */
+            
+            if(idUser == -1){
+        %>
+                <form name="form1" action='index.jsp' method="POST">
+                    Login: <input type="text" name="login" size="30" /> <BR>
+                    Password: <input type="text" name="password" size="30" /> <BR>
+                    <input type="submit" value="Sign-In" />
+                </form>
+        <%
+            } else {
+        %> 
+                <p>Hello <%out.println(login);%></p>
+                <p>Click the link below to access the application</p>
+                <p><a href="index2.jsp">Access Application</a></p>
+        <%
+            }
+            //session.setAttribute("idUser", -1);
+        %>
         
-        <h2>Isolated Test</h2>
-        <p><a href="databaseTest.jsp">Collaborative Mapping - Database</a></p>
-        <p><a href="mappingTest.jsp">Collaborative Mapping - Mapping</a></p>
-        <p><a href="featureTest.jsp">Collaborative Mapping - Features Model</a></p>
-        <p><a href="ontologyTest.jsp">Collaborative Mapping - Ontology</a></p>
     </body>
 </html>

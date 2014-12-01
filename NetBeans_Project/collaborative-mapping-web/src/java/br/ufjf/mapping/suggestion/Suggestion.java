@@ -7,6 +7,7 @@ package br.ufjf.mapping.suggestion;
 
 import br.ufjf.mapping.feature.FileFeature;
 import br.ufjf.mapping.map.FileMapping;
+import br.ufjf.mapping.memory.FileDB;
 import br.ufjf.mapping.ontology.FileOntology;
 
 /**
@@ -17,7 +18,9 @@ public class Suggestion {
     private FileMapping fileMapping = new FileMapping();
     private FileFeature fileFeature = new FileFeature();
     private FileOntology fileOntology = new FileOntology();
+    private FileDB fileDB = new FileDB();
     private SuggestionPairText suggestionPairText = new SuggestionPairText();
+    private SuggestionPair suggestionPair = new SuggestionPair();
 
     /**
      * @return the fileMapping
@@ -73,6 +76,34 @@ public class Suggestion {
      */
     public void setSuggestionPairText(SuggestionPairText suggestionPairText) {
         this.suggestionPairText = suggestionPairText;
+    }
+
+    /**
+     * @return the fileDB
+     */
+    public FileDB getFileDB() {
+        return fileDB;
+    }
+
+    /**
+     * @param fileDB the fileDB to set
+     */
+    public void setFileDB(FileDB fileDB) {
+        this.fileDB = fileDB;
+    }
+
+    /**
+     * @return the suggestionPair
+     */
+    public SuggestionPair getSuggestionPair() {
+        return suggestionPair;
+    }
+
+    /**
+     * @param suggestionPair the suggestionPair to set
+     */
+    public void setSuggestionPair(SuggestionPair suggestionPair) {
+        this.suggestionPair = suggestionPair;
     }
     
 }

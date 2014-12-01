@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mappingStruct nameFile1="XmlMappingFile_v03-01" nameMap="XmlMappingFile_v03" nameFile2="XmlMappingFile_v03-02">
+    <mapping id="0">
+        <className>first0</className>
+        <featureName>second0</featureName>
+    </mapping>
+    <mapping id="1">
+        <className>first1</className>
+        <featureName>second1</featureName>
+    </mapping>
+    <mapping id="2">
+        <className>first2</className>
+        <featureName>second2</featureName>
+    </mapping>
+    <mapping id="3">
+        <className>first3</className>
+        <featureName>second3</featureName>
+    </mapping>
+    <mapping id="4">
+        <className>first4</className>
+        <featureName>second4</featureName>
+    </mapping>
+    <mapping id="5">
+        <className>first5</className>
+        <featureName>second5</featureName>
+    </mapping>
+    <mapping id="6">
+        <className>first6</className>
+        <featureName>second6</featureName>
+    </mapping>
+    <mapping id="7">
+        <className>first7</className>
+        <featureName>second7</featureName>
+    </mapping>
+    <mapping id="8">
+        <className>first8</className>
+        <featureName>second8</featureName>
+    </mapping>
+    <mapping id="9">
+        <className>first9</className>
+        <featureName>second9</featureName>
+    </mapping>
+    <mapping id="10">
+        <className>first10</className>
+        <featureName>second10</featureName>
+    </mapping>
+    <mapping id="11">
+        <className>first11</className>
+        <featureName>second11</featureName>
+    </mapping>
+    <mapping id="12">
+        <className>first12</className>
+        <featureName>second12</featureName>
+    </mapping>
+    <mapping id="13">
+        <className>first13</className>
+        <featureName>second13</featureName>
+    </mapping>
+    <mapping id="14">
+        <className>first14</className>
+        <featureName>second14</featureName>
+    </mapping>
+    <mapping id="15">
+        <className>first15</className>
+        <featureName>second15</featureName>
+    </mapping>
+    <mapping id="16">
+        <className>first16</className>
+        <featureName>second16</featureName>
+    </mapping>
+    <mapping id="17">
+        <className>first17</className>
+        <featureName>second17</featureName>
+    </mapping>
+    <mapping id="18">
+        <className>first18</className>
+        <featureName>second18</featureName>
+    </mapping>
+    <mapping id="19">
+        <className>first19</className>
+        <featureName>second19</featureName>
+    </mapping>
+</mappingStruct>

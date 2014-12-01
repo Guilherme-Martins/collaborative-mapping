@@ -55,7 +55,5 @@ public class FileMapping {
      */
     public void setMappingStruct(MappingStruct mappingStruct) {
         this.mappingStruct = mappingStruct;
-    }
-    
-    
+    }  
 }

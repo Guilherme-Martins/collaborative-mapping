@@ -41,7 +41,8 @@
         %>
         
         <%
-            out.println(fm.getMappingCreate().createFileMapping("XmlMappingFile_v02", mlp)+"<BR><BR>");
+            //out.println(fm.getMappingCreate().createFileMappingTESTE("XmlMappingFile_v03", mlp)+"<BR><BR>");
+            //out.println(fm.getMappingCreate().createEmptyFileMapping("EmptyFileTest", "File1", "File2")+"<BR><BR>");
         %>
         
         <p><a href="index.jsp">Collaborative Mapping - Homepage</a></p>

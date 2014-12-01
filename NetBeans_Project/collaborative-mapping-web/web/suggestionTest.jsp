@@ -36,9 +36,16 @@
         %>
         
         <%
+            String URI = "file:///E:/RepositoryGIT/collaborative-mapping/NetBeans_Project/files/ontologies/SequenceAligningOntologyv1b.owl";
+            fo.getOntologyRead().setONTOLOGY_URI(URI);
+            fo.getOntologyRead().setBASE_URI();         
+            
             ArrayList<String> list_1 = ff.getFeatureRead().getElementNames(ff.getFeatureRead().readFeatureFile("SequenceAligningFeatureModelv1b"));
             ArrayList<String> list_2 = fo.getOntologyRead().getClasses();
-            //out.println(s.getSuggestionPairText().listSuggestionPair(list_1, list_2).printMappingListPair()+"<BR><BR>");
+            
+            int lastPair = s.getFileDB().getReadDB().lastIdPair();
+            
+            out.println(s.getSuggestionPairText().listSuggestionPair(list_1, list_2, lastPair).printMappingListPairSuggestion()+"<BR><BR>");
         %>
         
         <p><a href="index.jsp">Collaborative Mapping - Homepage</a></p>

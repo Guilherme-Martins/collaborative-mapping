@@ -205,7 +205,7 @@ public class OntologyRead {
     
     /* PODE SER UZADO FUTURAMENTE */
     
-    /* NÃO GERA ERRA, CONTUDO NÃO RETORNA RESULTADO. DEVE SER REPENSADO.
+    /* NÃO GERA ERRO, CONTUDO NÃO RETORNA RESULTADO. DEVE SER REPENSADO.
     public String getDatasIndividuals(String nameClass) {
         OntModel ontModel = ModelFactory.createOntologyModel();
         ontModel.read(ONTOLOGY_URI);

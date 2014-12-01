@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class MappingListPair {
     
     private ArrayList<MappingPair> mappingListPair = new ArrayList<>();
-    private int idPair = 1;
+    private int idPair;
 
     /**
      * @return the mappingListPair
@@ -39,13 +39,21 @@ public class MappingListPair {
     
     /**
      *
+     * @param idPair
+     */
+    public void setIdPair( int idPair){
+        this.idPair = idPair;
+    }
+    
+    /**
+     *
      */
     public void updateIdPair(){
         this.idPair = this.idPair + 1;
     }
     
     public String printMappingListPair(){
-        String listPair = "";
+        String listPair = "PAIRS:<BR>";
         
         for(MappingPair mp: this.mappingListPair){
             listPair = listPair + mp.getIdPair() + " = " +
