@@ -17,7 +17,8 @@
         <title>Collaborative Mapping - Suggestion Validity</title>
     </head>
     <body>
-        <h1 align=center>Collaborative Mapping - Suggestion Validity</h1>
+        <div align=center>
+        <h1 align=center>Collaborative Mapping - Suggestions for Syntactic Validation</h1>
         
         <%
             MappingListPairSuggestion mlps = new MappingListPairSuggestion();
@@ -122,7 +123,8 @@
             //out.println("<BR>Terminou<BR>");  
         %>  
         
-        <p><a href="index2.jsp">Collaborative Mapping - Homepage</a></p>
+        <p><a href="index2.jsp">Collaborative Mapping - Homepage</a></p><BR>
         <p><a href="index.jsp">EXIT</a></p>
+        </div>
     </body>
 </html>

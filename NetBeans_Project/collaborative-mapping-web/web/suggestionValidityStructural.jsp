@@ -1,6 +1,6 @@
 <%-- 
-    Document   : suggestionValidaty
-    Created on : 12/11/2014, 15:52:26
+    Document   : suggestionValidityStructural
+    Created on : 12/12/2014, 17:42:46
     Author     : Guilherme Martins
 --%>
 
@@ -24,7 +24,9 @@
     </head>
     <body>
         <div align=center>
-        <h1 align=center>Collaborative Mapping - Suggestions for Validation (Syntactic)</h1>
+        <h1 align=center>Collaborative Mapping - Suggestions for Validation (Structural)</h1>
+        
+        <p>Being built...</p>
         
         <form action='saveSuggestions.jsp' method="POST">        
             <%

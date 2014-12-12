@@ -14,7 +14,7 @@
         <title>Collaborative Mapping</title>
     </head>
     <body>
-        <h1>Collaborative Mapping - Login</h1>
+        <h1 align=center>Collaborative Mapping - Login</h1>
         <BR>
         
         <%
@@ -56,17 +56,27 @@
             if(idUser == -1){
         %>
                 <form name="form1" action='index.jsp' method="POST">
-                    Login: <input type="text" name="login" size="30" /> <BR>
-                    Password: <input type="text" name="password" size="30" /> <BR>
-                    <input type="submit" value="Sign-In" />
+                    <table border="0" align="center">
+                        <tr>
+                            <td><b>Login:</b></td>
+                            <td><input type="text" name="login" size="20" /></td>
+                        </tr>
+                        <tr>
+                            <td><b>Password:</b></td> 
+                            <td><input type="password" name="password" size="20" /></td>
+                        </tr>
+                        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        <tr>
+                            <td><input type="submit" value="Sign-In" /></td>
+                        </tr>
+                    </table>
                 </form>
         <%
             } else {
-        %> 
-                <p>Hello <%out.println(login);%></p>
-                <p>Click the link below to access the application</p>
-                <p><a href="index2.jsp">Access Application</a></p>
-        <%
+                // New location to be redirected
+                String site = new String("index2.jsp");
+                response.setStatus(response.SC_MOVED_TEMPORARILY);
+                response.setHeader("Location", site);
             }
             //session.setAttribute("idUser", -1);
         %>

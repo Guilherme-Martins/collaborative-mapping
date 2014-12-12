@@ -1,6 +1,6 @@
 <%-- 
-    Document   : suggestionTest
-    Created on : 22/10/2014, 18:34:44
+    Document   : suggestionValidityTestStructural
+    Created on : 12/12/2014, 17:43:23
     Author     : Guilherme Martins
 --%>
 
@@ -17,7 +17,9 @@
     </head>
     <body>
         <div align=center>
-        <h1>Collaborative Mapping - Suggestions for Validation (Syntactic Test)</h1>
+        <h1>Collaborative Mapping - Suggestions for Validation (Structural Test)</h1>
+        
+        <p>Being built...</p>
         
         <%
             Suggestion s = new Suggestion();
@@ -46,7 +48,7 @@
             
             int lastPair = s.getFileDB().getReadDB().lastIdPair();
             
-            out.println(s.getSuggestionPairText().listSuggestionPair(list_1, list_2, lastPair).printMappingListPairSuggestion()+"<BR><BR>");
+            //out.println(s.getSuggestionPairText().listSuggestionPair(list_1, list_2, lastPair).printMappingListPairSuggestion()+"<BR><BR>");
         %>
         
         <p><a href="index2.jsp">Collaborative Mapping - Homepage</a></p><BR>

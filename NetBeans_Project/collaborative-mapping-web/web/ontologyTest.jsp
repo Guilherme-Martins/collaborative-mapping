@@ -13,6 +13,7 @@
         <title>Collaborative Mapping</title>
     </head>
     <body>
+        
         <h1>Collaborative Mapping - Ontology</h1>
         
         <%
@@ -50,6 +51,7 @@
         %>
         
         
-        <p><a href="index.jsp">Collaborative Mapping - Homepage</a></p>
+        <p><a href="index2.jsp">Collaborative Mapping - Homepage</a></p> <BR>
+        <p><a href="index.jsp">EXIT</a></p>
     </body>
 </html>
