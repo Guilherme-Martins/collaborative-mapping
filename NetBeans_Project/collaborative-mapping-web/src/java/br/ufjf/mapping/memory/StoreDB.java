@@ -74,7 +74,16 @@ public class StoreDB {
         return save;
     }
     
-    public String savePairs(int idUser, int idMappingFile, MappingListPairSuggestion mlps) throws SQLException{
+    /**
+     *
+     * @param idUser
+     * @param idMappingFile
+     * @param mlps
+     * @param method
+     * @return
+     * @throws SQLException
+     */
+    public String savePairs(int idUser, int idMappingFile, MappingListPairSuggestion mlps, String method) throws SQLException{
         
         String save = "Erro de Gravação!";
         // cria um preparedStatement
@@ -82,8 +91,8 @@ public class StoreDB {
             Connection con = ConnectDB.getConnectDB()) {
             // cria um preparedStatement
             String sql = "insert into pairmap" +
-                    " (idPairMap, idUser, idMappinfFile, element1, element2, description, validity)" +
-                    " values (?, ?, ?, ?, ?, ?, ?)";
+                    " (idPairMap, idUser, idMappinfFile, element1, element2, description, validity, method)" +
+                    " values (?, ?, ?, ?, ?, ?, ?, ?)";
             
             for(MappingPairSuggestion mps: mlps.getMappingListPairSuggestion()){
             
@@ -97,6 +106,7 @@ public class StoreDB {
                     stmt.setString(5, mps.getSecond());
                     stmt.setString(6, mps.getComment());
                     stmt.setInt(7, mps.getValidity());
+                    stmt.setString(8, method);
 
                     // executa
                     stmt.execute();

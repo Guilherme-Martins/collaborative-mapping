@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<mappingStruct nameFile1="SequenceAligningFeatureModelv1b.xml" nameMap="TesteGeral_v01" nameFile2="SequenceAligningOntologyv1b.owl"/>
+<mappingStruct nameFile1="SequenceAligningFeatureModelv1b.xml" nameMap="TesteGeral_v01" nameFile2="SequenceAligningOntologyv1b.owl">
+    <mapping id="4">
+        <className>application_type</className>
+        <featureName>application_type</featureName>
+    </mapping>
+    <mapping id="5">
+        <className>isolated_application</className>
+        <featureName>isolated_application</featureName>
+    </mapping>
+    <mapping id="6">
+        <className>workflow</className>
+        <featureName>workflow</featureName>
+    </mapping>
+    <mapping id="7">
+        <className>Sanger</className>
+        <featureName>Sanger</featureName>
+    </mapping>
+    <mapping id="8">
+        <className>NGS</className>
+        <featureName>NGS</featureName>
+    </mapping>
+    <mapping id="9">
+        <className>FLX_454</className>
+        <featureName>FLX_454</featureName>
+    </mapping>
+</mappingStruct>

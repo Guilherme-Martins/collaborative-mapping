@@ -51,8 +51,7 @@
             //out.println(s.getSuggestionPairText().listSuggestionPair(list_1, list_2, lastPair).printMappingListPairSuggestion()+"<BR><BR>");
         %>
         
-        <p><a href="index2.jsp">Collaborative Mapping - Homepage</a></p><BR>
-        <p><a href="index.jsp">EXIT</a></p>
+        <p><a href="index2.jsp">Collaborative Mapping - Homepage</a></p>
         </div>
     </body>
 </html>

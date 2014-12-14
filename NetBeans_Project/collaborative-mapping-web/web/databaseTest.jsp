@@ -26,10 +26,6 @@
         <%
             out.println(fdb.getConnectDB().teste()+"<BR><BR>");
         %>
-          
-        <%
-            out.println(fdb.getReadDB().query()+"<BR><BR>");
-        %>
         
         <%
             out.println("Ultimo IdPair: "+fdb.getReadDB().lastIdPair()+"<BR><BR>");
@@ -38,6 +34,9 @@
             out.println("IdUser: "+fdb.getReadDB().authenticationUser("guilherme.martins", "guilherme")+"<BR><BR>");
             out.println("IdUser: "+fdb.getReadDB().authenticationUser("guilherme.martins", "gui")+"<BR><BR>");
             out.println("Users: "+fdb.getReadDB().mappingByUser(1)+"<BR><BR>");
+            out.println("Positive Quantity: "+fdb.getReadDB().getPositiveQuantity(6)+"<BR><BR>");
+            out.println("Positive Quantity by User: "+fdb.getReadDB().getPositiveQuantityByUser(6, 2)+"<BR><BR>");
+            out.println("Description by User for one Pair: <BR>"+fdb.getReadDB().getDescriptionByUser(6, 4)+"<BR><BR>");
             
             /*
             fdb.getReadDB().pairSuggestion(1);
@@ -57,6 +56,6 @@
             //out.println(fdb.getStoryDB().saveDocument("DocTest", "Test")+"<BR><BR>");
         %>
         
-        <p><a href="index.jsp">Collaborative Mapping - Homepage</a></p>
+        <p><a href="index2.jsp">Collaborative Mapping - Homepage</a></p>
     </body>
 </html>

@@ -19,6 +19,7 @@
             <h2>Suggestion Validation</h2>
             <p><a href="suggestionValidity.jsp">Collaborative Mapping - Suggestions for Validation (Syntactic)</a></p>
             <p><a href="suggestionValidityStructural.jsp">Collaborative Mapping - Suggestions for Validation (Structural)</a></p>
+            <p><a href="statisticsIndex.jsp">Collaborative Mapping - Statistics</a></p>
             <BR>
             
             <h2>Suggestion Test</h2>

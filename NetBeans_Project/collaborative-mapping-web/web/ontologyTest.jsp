@@ -51,7 +51,6 @@
         %>
         
         
-        <p><a href="index2.jsp">Collaborative Mapping - Homepage</a></p> <BR>
-        <p><a href="index.jsp">EXIT</a></p>
+        <p><a href="index2.jsp">Collaborative Mapping - Homepage</a></p>
     </body>
 </html>

@@ -45,6 +45,6 @@
             //out.println(fm.getMappingCreate().createEmptyFileMapping("EmptyFileTest", "File1", "File2")+"<BR><BR>");
         %>
         
-        <p><a href="index.jsp">Collaborative Mapping - Homepage</a></p>
+        <p><a href="index2.jsp">Collaborative Mapping - Homepage</a></p>
     </body>
 </html>

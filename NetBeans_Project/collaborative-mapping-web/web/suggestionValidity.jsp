@@ -104,7 +104,7 @@
                     idMappingFile = fdb.getReadDB().idMappingFile(file1, file2);
                     
                     //Salva os "Pares Sugeridos" no Banco de Dados.
-                    fdb.getStoryDB().savePairs(idUser, idMappingFile, mlps);
+                    fdb.getStoryDB().savePairs(idUser, idMappingFile, mlps, "Syntactic");
                     
                     out.println("<h2>" + nameMappingFile + "</h2><BR><BR>");
                     
@@ -136,17 +136,16 @@
                         mlps.setMappingListPairSuggestion(fdb.getReadDB().pairSuggestion(idMappingFile));
                         
                         //Salva os "Pares Sugeridos" no Banco de Dados.
-                        fdb.getStoryDB().savePairs(idUser, idMappingFile, mlps);
+                        fdb.getStoryDB().savePairs(idUser, idMappingFile, mlps, "Syntactic");
                         
                         //Recupera o último "idPair" do Banco de Dados. (Necessário se novos pares forem incluídos)
                         mlps.setIdPair(fdb.getReadDB().lastIdPair());
                     }
                 }
                 
-                //Armazena dados na sessão. ("nameMappingFile", "idMappingFile", "idUser", "nameFile2", "nameFile2")
+                //Armazena dados na sessão. ("nameMappingFile", "idMappingFile", "nameFile2", "nameFile2")
                 session.setAttribute("nameMappingFile", nameMappingFile);
                 session.setAttribute("idMappingFile", idMappingFile);
-                //session.setAttribute("idUser", idUser);
                 session.setAttribute("nameFile1", file1);
                 session.setAttribute("nameFile2", file2);
             %>
@@ -204,14 +203,12 @@
             %>
             
             <BR>
-
-               
+           
         </form>
         
         <BR><BR>
         
-        <p><a href="index2.jsp">Collaborative Mapping - Homepage</a></p><BR>
-        <p><a href="index.jsp">EXIT</a></p>
+        <p><a href="index2.jsp">Collaborative Mapping - Homepage</a></p>
         </div>
     </body>
 </html>
