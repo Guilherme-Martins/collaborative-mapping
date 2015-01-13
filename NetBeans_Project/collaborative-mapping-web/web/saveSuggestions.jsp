@@ -28,18 +28,19 @@
             FileDB fdb = new FileDB();
             
             int idUser, idMappingFile;
-            String nameMappingFile, nameFile1, nameFile2;
+            String nameMappingFile, nameFile1, nameFile2, method;
             
             idUser = (int) session.getAttribute("idUser");
             idMappingFile = (int) session.getAttribute("idMappingFile");
             nameMappingFile = (String) session.getAttribute("nameMappingFile");
             nameFile1 = (String) session.getAttribute("nameFile1");
             nameFile2 = (String) session.getAttribute("nameFile2");
+            method = (String) session.getAttribute("method");
         %>
         
         <%
             //Recupera os pares sugeridos armazenados no Banco de Dados.
-            mlps.setMappingListPairSuggestion(fdb.getReadDB().pairSuggestion(idMappingFile, idUser));
+            mlps.setMappingListPairSuggestion(fdb.getReadDB().pairSuggestion(idMappingFile, idUser, method));
             
             //Recupera o último "idPair" do Banco de Dados. (Necessário se novos pares forem incluídos)
             mlps.setIdPair(fdb.getReadDB().lastIdPair());
@@ -60,7 +61,7 @@
         
         <%
             //Atualiza o Banco de Dados de agordo com os valores preenchido no formulário.
-            fdb.getStoryDB().updatePairs(idUser, idMappingFile, mlps_modified);
+            fdb.getStoryDB().updatePairs(idUser, idMappingFile, mlps_modified, method);
             
             out.println("<BR>IdUser: "+ idUser + " IdMapping: " + idMappingFile + "  " + "<BR>");
             

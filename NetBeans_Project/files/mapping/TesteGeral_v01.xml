@@ -24,4 +24,12 @@
         <className>FLX_454</className>
         <featureName>FLX_454</featureName>
     </mapping>
+    <mapping id="10">
+        <className>Solexa</className>
+        <featureName>Solexa</featureName>
+    </mapping>
+    <mapping id="11">
+        <className>SOLiDSystem</className>
+        <featureName>SOLiDSystem</featureName>
+    </mapping>
 </mappingStruct>

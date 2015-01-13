@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -311,7 +313,7 @@ public class ReadDB {
      * @param idUser
      * @return
      */
-    public ArrayList<MappingPairSuggestion> pairSuggestion(int idMappingFile, int idUser){
+    public ArrayList<MappingPairSuggestion> pairSuggestion(int idMappingFile, int idUser, String method){
 
         ArrayList<MappingPairSuggestion> mappingListPairSuggestion = new ArrayList<>();
         
@@ -325,7 +327,8 @@ public class ReadDB {
 
         String query = "select * from pairmap as p where "  + 
                             "p.idMappinfFile = " + idMappingFile +
-                            " and p.idUser = " + idUser;
+                            " and p.idUser = " + idUser +
+                            " and p.method = \"" + method + "\"";
         
         ResultSet r = null;
         try {
@@ -552,7 +555,7 @@ public class ReadDB {
      * @param idUser
      * @return
      */
-    public int getQuantityByUser(int idMappingFile, int idUser){
+    public int getQuantityByUser(int idMappingFile, int idUser, String method){
         String result = "";
 
         Statement s = null;
@@ -566,7 +569,7 @@ public class ReadDB {
         ResultSet r = null;
         try {
             r = s.executeQuery("select count(distinct idPairMap) as positive from pairmap where idMappinfFile = " + 
-                    idMappingFile + " and idUser = " + idUser);
+                    idMappingFile + " and idUser = " + idUser + " and method = \"" + method + "\"");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -685,13 +688,14 @@ public class ReadDB {
     }
     
     /**
-     * Retorna os comentários deixados pelos usuário.
+     * Retorna os comentários deixados pelos usuário dado o ID de um par.
      * @param idMappingFile
      * @param idPair
      * @return - String com os comentários.
      */
     public String getDescriptionByUser(int idMappingFile, int idPair){
         String result = "";
+        String validity = "";
 
         Statement s = null;
         Connection connection = ConnectDB.getConnectDB();
@@ -701,7 +705,7 @@ public class ReadDB {
             e.printStackTrace();
         }
 
-        String query = "select u.name, p.description, p.method from pairmap as p, user as u " +
+        String query = "select u.name, p.description, p.method, p.validity from pairmap as p, user as u " +
             "where p.idMappinfFile = " + idMappingFile + 
             " and p.idPairMap = " + idPair + " and p.idUser = u.idUser";
 
@@ -714,7 +718,12 @@ public class ReadDB {
         
         try {
             while(r.next()){
-                result = result + r.getString("u.name") + ": " + r.getString("p.description") + "<BR>";
+                if(r.getString("p.validity").equals("1"))
+                    validity = "Positive";
+                else
+                    validity = "Negative";
+                
+                result = result + r.getString("u.name") + " (" + validity + "): " + r.getString("p.description") + "\n";
             }
         } catch (SQLException e) {
               // TODO Auto-generated catch block
@@ -726,7 +735,13 @@ public class ReadDB {
               // TODO Auto-generated catch block
               e.printStackTrace();
         }
-                
+        
+        try {
+            s.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ReadDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         if(result != null && !result.isEmpty())
             return result;
         else
@@ -777,6 +792,213 @@ public class ReadDB {
         }
                
         return result;
+    }
+    
+    /**
+     * Retorna a quantidade de validações POSITIVAS dado o ID de um arquivo de mapeamento e o ID de um Par.
+     * @param idMappingFile
+     * @param idPair
+     * @return
+     */
+    public int getPositiveQuantityByPair(int idMappingFile, int idPair){
+        String result = "";
+
+        Statement s = null;
+        Connection connection = ConnectDB.getConnectDB();
+        try {
+            s = (Statement) connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        ResultSet r = null;
+        try {
+            r = s.executeQuery("select count(distinct idUser) as positive from pairmap where idMappinfFile = " + 
+                    idMappingFile + " and idPairMap = " + idPair + " and validity = 1");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        try {
+            if(r.next()){
+                result = r.getString("positive");
+            }
+        } catch (SQLException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+        }
+        try {
+              r.close();
+        } catch (SQLException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+        }
+        
+        try {
+            s.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ReadDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(result != null && !result.isEmpty())
+            return Integer.parseInt(result);
+        else
+            return 0;
+    }
+    
+    /**
+     * Retorna a quantidade de validações NEGATIVAS dado o ID de um arquivo de mapeamento e o ID de um Par.
+     * @param idMappingFile
+     * @param idPair
+     * @return
+     */
+    public int getNegativeQuantityByPair(int idMappingFile, int idPair){
+        String result = "";
+
+        Statement s = null;
+        Connection connection = ConnectDB.getConnectDB();
+        try {
+            s = (Statement) connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        ResultSet r = null;
+        try {
+            r = s.executeQuery("select count(distinct idUser) as negative from pairmap where idMappinfFile = " + 
+                    idMappingFile + " and idPairMap = " + idPair + " and validity = 0");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        try {
+            if(r.next()){
+                result = r.getString("negative");
+            }
+        } catch (SQLException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+        }
+        try {
+              r.close();
+        } catch (SQLException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+        }
+        
+        try {
+            s.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ReadDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                
+        if(result != null && !result.isEmpty())
+            return Integer.parseInt(result);
+        else
+            return 0;
+    }
+    
+    /**
+     * Retorna a quantidade de validações TOTAIS dado o ID de um arquivo de mapeamento e o ID de um Par.
+     * @param idMappingFile
+     * @param idPair
+     * @return
+     */
+    public int getQuantityByPair(int idMappingFile, int idPair){
+        String result = "";
+
+        Statement s = null;
+        Connection connection = ConnectDB.getConnectDB();
+        try {
+            s = (Statement) connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        ResultSet r = null;
+        try {
+            r = s.executeQuery("select count(distinct idUser) as total from pairmap where idMappinfFile = " + 
+                    idMappingFile + " and idPairMap = " + idPair);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        try {
+            if(r.next()){
+                result = r.getString("total");
+            }
+        } catch (SQLException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+        }
+        try {
+              r.close();
+        } catch (SQLException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+        }
+        
+        try {
+            s.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ReadDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                
+        if(result != null && !result.isEmpty())
+            return Integer.parseInt(result);
+        else
+            return 0;
+    }
+    
+    /**
+     * Retorna um valor positivo caso exista um mapeamento com o método informado, e returna ZERO em caso contrário.
+     * @param idMappingFile
+     * @param idUser
+     * @param method
+     * @return
+     */
+    public int getMethodByUser(int idMappingFile, int idUser, String method){
+        String result = "";
+
+        Statement s = null;
+        Connection connection = ConnectDB.getConnectDB();
+        try {
+            s = (Statement) connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String query = "select idPairMap from pairmap where idMappinfFile = " + idMappingFile +
+                            " and idUser = " + idUser +
+                            " and method = \""+ method +"\"\n" +
+                            " limit 1";
+        
+        ResultSet r = null;
+        try {
+            r = s.executeQuery(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        try {
+            if(r.next()){
+                result = r.getString("idPairMap");
+            }
+        } catch (SQLException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+        }
+        try {
+              r.close();
+        } catch (SQLException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+        }
+                
+        if(result != null && !result.isEmpty())
+            return Integer.parseInt(result);
+        else
+            return 0;
     }
     
     /************************************************ DOCUMENT ************************************************/

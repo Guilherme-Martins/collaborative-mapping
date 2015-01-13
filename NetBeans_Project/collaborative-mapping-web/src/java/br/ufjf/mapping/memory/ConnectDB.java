@@ -31,8 +31,11 @@ public class ConnectDB {
      *
      * @return
      */
+    private static Connection connection = null;
+    
     public static java.sql.Connection getConnectDB() { 
-        Connection connection = null; //atributo do tipo Connection 
+        closeConnect();
+         //atributo do tipo Connection 
         try { // Carregando o JDBC Driver padrão 
             String driverName = "com.mysql.jdbc.Driver"; 
             Class.forName(driverName); // Configurando a nossa conexão com um banco de dados// 
@@ -46,14 +49,18 @@ public class ConnectDB {
                 status = ("<br>STATUS--->Success Connected!");
             }else{ 
                 status = ("<br>STATUS--->Not connected!");
+                throw new RuntimeException("Não conectado "+status);
             } 
             return connection; 
         } catch (ClassNotFoundException e) { //Driver não encontrado 
             System.out.println("Error driver.");
-            return null; 
+            throw new RuntimeException("Não conectado ", e);
         } catch (SQLException e) { //Não conseguindo se conectar ao banco 
             System.out.println("Error connection."); 
-            return null; 
+            throw new RuntimeException("Não conectado ",e);
+        } catch (Exception e) { //Não conseguindo se conectar ao banco 
+            System.out.println("Error connection."); 
+            throw new RuntimeException("Não conectado ",e);
         } 
     } 
 
@@ -75,7 +82,9 @@ public class ConnectDB {
      */
     public static boolean closeConnect() { 
         try { 
-            ConnectDB.getConnectDB().close(); 
+            if (connection != null && !connection.isClosed()) {
+                connection.close(); 
+            }
             return true; 
         } catch (SQLException e) { 
             return false; 

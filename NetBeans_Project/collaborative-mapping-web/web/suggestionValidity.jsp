@@ -4,6 +4,7 @@
     Author     : Guilherme Martins
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="br.ufjf.mapping.memory.FileDB"%>
 <%@page import="br.ufjf.mapping.map.FileMapping"%>
 <%@page import="br.ufjf.mapping.suggestion.SuggestionPair"%>
@@ -126,7 +127,7 @@
                         nameMappingFile = fdb.getReadDB().nameMappingFile(idMappingFile);
 
                         //Recupera os pares sugeridos armazenados no Banco de Dados, DEPENDENTE do usuário.
-                        mlps.setMappingListPairSuggestion(fdb.getReadDB().pairSuggestion(idMappingFile, idUser));
+                        mlps.setMappingListPairSuggestion(fdb.getReadDB().pairSuggestion(idMappingFile, idUser, "Syntactic"));
 
                         //Recupera o último "idPair" do Banco de Dados. (Necessário se novos pares forem incluídos)
                         mlps.setIdPair(fdb.getReadDB().lastIdPair());
@@ -143,11 +144,12 @@
                     }
                 }
                 
-                //Armazena dados na sessão. ("nameMappingFile", "idMappingFile", "nameFile2", "nameFile2")
+                //Armazena dados na sessão. ("nameMappingFile", "idMappingFile", "nameFile2", "nameFile2", "method")
                 session.setAttribute("nameMappingFile", nameMappingFile);
                 session.setAttribute("idMappingFile", idMappingFile);
                 session.setAttribute("nameFile1", file1);
                 session.setAttribute("nameFile2", file2);
+                session.setAttribute("method", "Syntactic");
             %>
             
             <table border="0" align=center>
@@ -167,25 +169,41 @@
                 //Utilizado para criar os campos para validação no formulário.
                 String listPair = "";
                 
+                //Utilizado para calcular a porcentagem de validações positivas e negativas.
+                double total, positive, negative;
+                positive = 3; negative = 1; total = positive + negative; 
+                
+                //Formata a saída em porcentagem com duas casas decimais.
+                DecimalFormat df = new DecimalFormat("0.00");
+                
                 //Cria o formulário para validação dos pares. 
                 for(MappingPairSuggestion mps: mlps.getMappingListPairSuggestion()){
+                    
+                    //ACONTECEM ALGUNS PROBLEMAS, DEVE SER REVISTO DEPOIS
+                    //total = fdb.getReadDB().getQuantityByPair(idMappingFile, mps.getIdPair());
+                    //positive = fdb.getReadDB().getPositiveQuantityByPair(idMappingFile, mps.getIdPair());
+                    //negative = fdb.getReadDB().getNegativeQuantityByPair(idMappingFile, mps.getIdPair());
+                    
                     listPair = "<tr>" + 
                                     "<td align=center>" + mps.getIdPair() + "</td>" +
                                     "<td align=center>" + mps.getFirst() + "</td>" + 
                                     "<td align=center>" + mps.getSecond() + "</td>" +
-                                    "<td align=center>" + "<input type=\"radio\" name=\"validity_" + mps.getIdPair() + "\" value=\"1\"> Yes " + 
-                                        "<input type=\"radio\" name=\"validity_" + mps.getIdPair() + "\" value=\"0\" checked> No" + "</td>" +
-                                    "<td align=center>" + "<input type=\"text\" name=\"comment_" + mps.getIdPair() + "\"  size=\"50\" />" + "</td>" +
+                                    "<td align=center>" + 
+                                        "<input type=\"radio\" name=\"validity_" + mps.getIdPair() + "\" value=\"1\" " +
+                                            " title=\"" + (int) positive + " (" + df.format(positive*100/total) + "%) "+ "\"> Yes " + 
+                                        "<input type=\"radio\" name=\"validity_" + mps.getIdPair() + "\" value=\"0\" " + 
+                                            " title=\"" + (int) negative + " (" + df.format(negative*100/total) + "%) "+ "\" checked> No" + "</td>" +
+                                    "<td align=center>" + "<input type=\"text\" name=\"comment_" + mps.getIdPair() + "\"  size=\"50\" title=\"" +
+                                       fdb.getReadDB().getDescriptionByUser(idMappingFile, mps.getIdPair()) + "\" />" + "</td>" +
                                 "</tr>";
                     out.println(listPair);
-                }
-                
+                }                
             %>
                 <tr>   
                     <td colspan="5" align=center><input type="submit" value="Save"></td>
                 </tr>
             </table>
-            
+                          
             <%
                 /* FUNCIONA
                                 
@@ -206,7 +224,29 @@
            
         </form>
         
-        <BR><BR>
+        <table border="1" align=center cellspacing=0 cellpadding=2 bordercolor="000000">    
+            <tr>
+                <th colspan="2" align=center>Users</th>
+            </tr>
+            <tr>
+                <th>User Name</th>
+                <th>E-mail</th>
+            </tr>
+            <tr>
+                <td>Rafael Almeida</td>
+                <td>rafael@ice.ufjf.br</td>
+            </tr>
+            <tr>
+                <td>Marcos Miguel</td>
+                <td>marcos@ice.ufjf.br</td>
+            </tr>
+            <tr>
+                <td>Tassio Sirqueira</td>
+                <td>tassio@ice.ufjf.br</td>
+            </tr>
+        </table>
+            
+        <BR>
         
         <p><a href="index2.jsp">Collaborative Mapping - Homepage</a></p>
         </div>

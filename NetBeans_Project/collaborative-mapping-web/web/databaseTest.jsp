@@ -37,6 +37,9 @@
             out.println("Positive Quantity: "+fdb.getReadDB().getPositiveQuantity(6)+"<BR><BR>");
             out.println("Positive Quantity by User: "+fdb.getReadDB().getPositiveQuantityByUser(6, 2)+"<BR><BR>");
             out.println("Description by User for one Pair: <BR>"+fdb.getReadDB().getDescriptionByUser(6, 4)+"<BR><BR>");
+            out.println("Positive Quantity by Pair: "+fdb.getReadDB().getNegativeQuantityByPair(6, 4)+"<BR><BR>");
+            out.println("Negative Quantity by User: "+fdb.getReadDB().getPositiveQuantityByPair(6, 4)+"<BR><BR>");
+            
             
             /*
             fdb.getReadDB().pairSuggestion(1);

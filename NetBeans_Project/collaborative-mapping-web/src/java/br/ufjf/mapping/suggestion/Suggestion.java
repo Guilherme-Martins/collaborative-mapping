@@ -21,6 +21,7 @@ public class Suggestion {
     private FileDB fileDB = new FileDB();
     private SuggestionPairText suggestionPairText = new SuggestionPairText();
     private SuggestionPair suggestionPair = new SuggestionPair();
+    private SuggestionPairStructural suggestionPairStructural = new SuggestionPairStructural();
 
     /**
      * @return the fileMapping
@@ -104,6 +105,20 @@ public class Suggestion {
      */
     public void setSuggestionPair(SuggestionPair suggestionPair) {
         this.suggestionPair = suggestionPair;
+    }
+
+    /**
+     * @return the suggestionPairStructural
+     */
+    public SuggestionPairStructural getSuggestionPairStructural() {
+        return suggestionPairStructural;
+    }
+
+    /**
+     * @param suggestionPairStructural the suggestionPairStructural to set
+     */
+    public void setSuggestionPairStructural(SuggestionPairStructural suggestionPairStructural) {
+        this.suggestionPairStructural = suggestionPairStructural;
     }
     
 }

@@ -121,14 +121,23 @@ public class StoreDB {
         return save;
     }
     
-    public String updatePairs(int idUser, int idMappingFile, MappingListPairSuggestion mlps) throws SQLException{
+    /**
+     *
+     * @param idUser
+     * @param idMappingFile
+     * @param mlps
+     * @param method
+     * @return
+     * @throws SQLException
+     */
+    public String updatePairs(int idUser, int idMappingFile, MappingListPairSuggestion mlps, String method) throws SQLException{
         
         String save = "Erro de Gravação!";
         // cria um preparedStatement
         try ( // conectando
             Connection con = ConnectDB.getConnectDB()) {
             // cria um preparedStatement
-            String sql = "UPDATE pairmap SET description = ?, validity = ? " +
+            String sql = "UPDATE pairmap SET description = ?, validity = ?, method = ? " +
                     "WHERE idPairMap = ? AND idUser = " + idUser + " AND idMappinfFile = " + idMappingFile;
             
             for(MappingPairSuggestion mps: mlps.getMappingListPairSuggestion()){
@@ -139,6 +148,7 @@ public class StoreDB {
                     stmt.setString(1, mps.getComment());
                     stmt.setInt(2, mps.getValidity());
                     stmt.setInt(3, mps.getIdPair());
+                    stmt.setString(4, method);
                     
                     // executa
                     stmt.execute();
@@ -148,6 +158,46 @@ public class StoreDB {
                     save = "Gravado!";
                 }
             }
+            con.close();
+        }
+        return save;
+    }
+    
+    /**
+     *
+     * @param idUser
+     * @param idMappingFile
+     * @param mlps
+     * @param method
+     * @return
+     * @throws SQLException
+     */
+    public String updatePair(int idUser, int idMappingFile, MappingPairSuggestion mps, String method) throws SQLException{
+        
+        String save = "Erro de Gravação!";
+        // cria um preparedStatement
+        try ( // conectando
+            Connection con = ConnectDB.getConnectDB()) {
+            // cria um preparedStatement
+            String sql = "UPDATE pairmap SET description = ?, validity = ?, method = ? " +
+                    "WHERE idPairMap = ? AND idUser = " + idUser + " AND idMappinfFile = " + idMappingFile;
+            
+            // preenche os valores
+            try (PreparedStatement stmt = con.prepareStatement(sql)) {
+                // preenche os valores                          
+                stmt.setString(1, mps.getComment());
+                stmt.setInt(2, mps.getValidity());
+                stmt.setInt(3, mps.getIdPair());
+                stmt.setString(4, method);
+
+                // executa
+                stmt.execute();
+
+                stmt.close();
+
+                save = "Gravado!";
+            }
+            
             con.close();
         }
         return save;

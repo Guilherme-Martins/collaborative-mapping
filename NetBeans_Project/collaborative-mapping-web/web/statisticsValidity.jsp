@@ -4,6 +4,7 @@
     Author     : Guilherme Martins
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <%@page import="br.ufjf.mapping.memory.FileDB"%>
@@ -65,7 +66,7 @@
                     
             %> 
             
-            <table border="1" align=center>
+            <table border="1" align=center cellspacing=0 cellpadding=2 bordercolor="000000">
             
                 <tr>
                     <th>User Name</th>
@@ -76,12 +77,25 @@
                 </tr>                
             <%       
                     //Usuário : Total : Positivos : Negativos : Método
+                    double total, positive, negative;
+                    total = positive = negative = 0;
+                    
+                    String method = "";
+                    
+                    DecimalFormat df = new DecimalFormat("0.00");
+                    
                     for(int user: users){
+
+                        method = fdb.getReadDB().getMethodValidation(fileMappingID, user);
+                        total = fdb.getReadDB().getQuantityByUser(fileMappingID, user, method);
+                        positive = fdb.getReadDB().getPositiveQuantityByUser(fileMappingID, user);
+                        negative = fdb.getReadDB().getNegativeQuantityByUser(fileMappingID, user);
+                        
                         out.println("<tr><td align=center>" + fdb.getReadDB().getNameUser(user) + "</td>" 
-                                + "<td align=center>" + fdb.getReadDB().getQuantityByUser(fileMappingID, user) + "</td>"
-                                + "<td align=center>" + fdb.getReadDB().getPositiveQuantityByUser(fileMappingID, user) + "</td>"
-                                + "<td align=center>" + fdb.getReadDB().getNegativeQuantityByUser(fileMappingID, user) + "</td>"
-                                + "<td align=center>" + fdb.getReadDB().getMethodValidation(fileMappingID, user) + "</td></tr>");
+                                + "<td align=center>" + (int) total + "</td>"
+                                + "<td align=center>" + (int) positive + " (" + df.format(positive*100/total) + "%)" + "</td>"
+                                + "<td align=center>" + (int) negative + " (" + df.format(negative*100/total) + "%)" + "</td>"
+                                + "<td align=center>" + method + "</td></tr>");
                     }
                 } else {
                     out.println("<b>Mapping file doesn't exist!</b>");

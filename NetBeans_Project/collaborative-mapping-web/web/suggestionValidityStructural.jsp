@@ -4,6 +4,7 @@
     Author     : Guilherme Martins
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="br.ufjf.mapping.memory.FileDB"%>
 <%@page import="br.ufjf.mapping.map.FileMapping"%>
 <%@page import="br.ufjf.mapping.suggestion.SuggestionPair"%>
@@ -26,7 +27,8 @@
         <div align=center>
         <h1 align=center>Collaborative Mapping - Suggestions for Validation (Structural)</h1>
         
-        <p>Being built...</p>
+        <!-- VERDADE, DEVE SER MELHORADO DEPOIS
+        <p>Being built...</p>-->
         
         <form action='saveSuggestions.jsp' method="POST">        
             <%
@@ -37,6 +39,8 @@
                 FileMapping fm = new FileMapping();
 
                 MappingListPairSuggestion mlps = new MappingListPairSuggestion();
+                MappingListPairSuggestion mlps_comparison1 = new MappingListPairSuggestion();
+                MappingListPairSuggestion mlps_comparison2 = new MappingListPairSuggestion();
             %>
 
             <%
@@ -73,7 +77,7 @@
                     int lastPair = s.getFileDB().getReadDB().lastIdPair();
 
                     //Gera lista de "Pares Sugeridos".
-                    mlps = s.getSuggestionPairText().listSuggestionPair(list_1, list_2, lastPair);
+                    mlps = s.getSuggestionPairStructural().listSuggestionPair(list_1, list_2, lastPair);
                     
                     //Requisita um "nome" para o "Arquivo de Mapeamento".
                     nameMappingFile = "TesteGeral_v01";
@@ -106,7 +110,7 @@
                     idMappingFile = fdb.getReadDB().idMappingFile(file1, file2);
                     
                     //Salva os "Pares Sugeridos" no Banco de Dados.
-                    fdb.getStoryDB().savePairs(idUser, idMappingFile, mlps);
+                    fdb.getStoryDB().savePairs(idUser, idMappingFile, mlps, "Structural");
                     
                     out.println("<h2>" + nameMappingFile + "</h2><BR><BR>");
                     
@@ -127,30 +131,53 @@
                         //Retorna o nome do "Arquivo de Mapeamento" dado o seu ID.
                         nameMappingFile = fdb.getReadDB().nameMappingFile(idMappingFile);
 
-                        //Recupera os pares sugeridos armazenados no Banco de Dados, DEPENDENTE do usuário.
-                        mlps.setMappingListPairSuggestion(fdb.getReadDB().pairSuggestion(idMappingFile, idUser));
+                        //Verifica se existe mapeamento para as técnica Estrutural no Banco de Dados para um determinado usuário.
+                        if(fdb.getReadDB().getMethodByUser(idMappingFile, idUser, "Structural") != 0){
+                            //Recupera os pares sugeridos armazenados no Banco de Dados, DEPENDENTE do usuário.
+                            mlps.setMappingListPairSuggestion(fdb.getReadDB().pairSuggestion(idMappingFile, idUser, "Structural"));
 
-                        //Recupera o último "idPair" do Banco de Dados. (Necessário se novos pares forem incluídos)
-                        mlps.setIdPair(fdb.getReadDB().lastIdPair());
+                            //Recupera o último "idPair" do Banco de Dados. (Necessário se novos pares forem incluídos)
+                            mlps.setIdPair(fdb.getReadDB().lastIdPair());
+                        } else {
+                             //Recupera o último par existente no Banco de Dados.
+                            int lastPair = s.getFileDB().getReadDB().lastIdPair();
+
+                            //Gera lista de "Pares Sugeridos".
+                            mlps_comparison1 = s.getSuggestionPairStructural().listSuggestionPair(list_1, list_2, lastPair);
+                            
+                            //Recupera os pares sugeridos armazenados no Banco de Dados, INDEPENDENTE do usuário.
+                            mlps_comparison2.setMappingListPairSuggestion(fdb.getReadDB().pairSuggestion(idMappingFile));
+                            
+                            //Compara lista de "Pares Sugeridos" com lista de pares do Banco de Dados.
+                            for(MappingPairSuggestion mps1: mlps_comparison1.getMappingListPairSuggestion()){
+                                for(MappingPairSuggestion mps2: mlps_comparison2.getMappingListPairSuggestion()){
+                                    if(mps1.getFirst().equals(mps2.getFirst()) && mps1.getSecond().equals(mps2.getSecond())){
+                                        //Altera os "Pares Sugeridos" no Banco de Dados.
+                                        fdb.getStoryDB().updatePair(idUser, idMappingFile, mps2, "Structural");
+                                    }
+                                }
+                            }
+                        }
+                                            
                     } else {
                         
                         //Recupera os pares sugeridos armazenados no Banco de Dados, INDEPENDENTE do usuário.
                         mlps.setMappingListPairSuggestion(fdb.getReadDB().pairSuggestion(idMappingFile));
                         
                         //Salva os "Pares Sugeridos" no Banco de Dados.
-                        fdb.getStoryDB().savePairs(idUser, idMappingFile, mlps);
+                        fdb.getStoryDB().savePairs(idUser, idMappingFile, mlps, "Structural");
                         
                         //Recupera o último "idPair" do Banco de Dados. (Necessário se novos pares forem incluídos)
                         mlps.setIdPair(fdb.getReadDB().lastIdPair());
                     }
                 }
                 
-                //Armazena dados na sessão. ("nameMappingFile", "idMappingFile", "idUser", "nameFile2", "nameFile2")
+                //Armazena dados na sessão. ("nameMappingFile", "idMappingFile",  "nameFile2", "nameFile2", "method")
                 session.setAttribute("nameMappingFile", nameMappingFile);
                 session.setAttribute("idMappingFile", idMappingFile);
-                //session.setAttribute("idUser", idUser);
                 session.setAttribute("nameFile1", file1);
                 session.setAttribute("nameFile2", file2);
+                session.setAttribute("method", "Structural");
             %>
             
             <table border="0" align=center>
@@ -170,19 +197,37 @@
                 //Utilizado para criar os campos para validação no formulário.
                 String listPair = "";
                 
+                //Utilizado para calcular a porcentagem de validações positivas e negativas.
+                double total, positive, negative;
+                positive = 3; negative = 1; total = positive + negative; 
+                
+                //Formata a saída em porcentagem com duas casas decimais.
+                DecimalFormat df = new DecimalFormat("0.00");
+                
                 //Cria o formulário para validação dos pares. 
                 for(MappingPairSuggestion mps: mlps.getMappingListPairSuggestion()){
-                    listPair = "<tr>" + 
-                                    "<td align=center>" + mps.getIdPair() + "</td>" +
-                                    "<td align=center>" + mps.getFirst() + "</td>" + 
-                                    "<td align=center>" + mps.getSecond() + "</td>" +
-                                    "<td align=center>" + "<input type=\"radio\" name=\"validity_" + mps.getIdPair() + "\" value=\"1\"> Yes " + 
-                                        "<input type=\"radio\" name=\"validity_" + mps.getIdPair() + "\" value=\"0\" checked> No" + "</td>" +
-                                    "<td align=center>" + "<input type=\"text\" name=\"comment_" + mps.getIdPair() + "\"  size=\"50\" />" + "</td>" +
-                                "</tr>";
-                    out.println(listPair);
+                    
+                    //ACONTECEM ALGUNS PROBLEMAS, DEVE SER REVISTO DEPOIS
+                    //total = fdb.getReadDB().getQuantityByPair(idMappingFile, mps.getIdPair());
+                    //positive = fdb.getReadDB().getPositiveQuantityByPair(idMappingFile, mps.getIdPair());
+                    //negative = fdb.getReadDB().getNegativeQuantityByPair(idMappingFile, mps.getIdPair());
+                    
+                    if(fdb.getReadDB().getMethodValidation(idMappingFile, idUser).equals("Structural")){                    
+                        listPair = "<tr>" + 
+                                        "<td align=center>" + mps.getIdPair() + "</td>" +
+                                        "<td align=center>" + mps.getFirst() + "</td>" + 
+                                        "<td align=center>" + mps.getSecond() + "</td>" +
+                                        "<td align=center>" + 
+                                            "<input type=\"radio\" name=\"validity_" + mps.getIdPair() + "\" value=\"1\" " +
+                                                " title=\"" + (int) positive + " (" + df.format(positive*100/total) + "%) "+ "\"> Yes " + 
+                                            "<input type=\"radio\" name=\"validity_" + mps.getIdPair() + "\" value=\"0\" " + 
+                                                " title=\"" + (int) negative + " (" + df.format(negative*100/total) + "%) "+ "\" checked> No" + "</td>" +
+                                        "<td align=center>" + "<input type=\"text\" name=\"comment_" + mps.getIdPair() + "\"  size=\"50\" title=\"" +
+                                           fdb.getReadDB().getDescriptionByUser(idMappingFile, mps.getIdPair()) + "\" />" + "</td>" +
+                                    "</tr>";
+                        out.println(listPair);
+                    }
                 }
-                
             %>
                 <tr>   
                     <td colspan="5" align=center><input type="submit" value="Save"></td>
